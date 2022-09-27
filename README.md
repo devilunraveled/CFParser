@@ -2,7 +2,8 @@
 
 
 Aim : Making a web scarper script that parses codeforces and performs the following actions:
-```   1. Load the test cases in a single file.
+```   
+   1. Load the test cases in a single file.
    2. Stores the expected output in another file.
    3. Both files should be edited if present, otherwise they should be created.
    4. The testcases all begin with the format -> `testCase_<num>`
