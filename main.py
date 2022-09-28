@@ -1,9 +1,13 @@
-import sys # For accessiing the system information, taking argument from command line args.
+import sys # For accessing the system information, taking argument from command line args.
+import datetime as d # For accessing date and time for comment block.
 from urllib.request import Request, urlopen # For parsing and downloading the html from a site.
+
 
 mainUrl = "https://codeforces.com/"
 contest = "contest/"
 problem = "problem/"
+problemset = "problemset/"
+URL = "";
 
 def printError( ):
     print("Errenous Command")
@@ -29,7 +33,8 @@ def inputHandler():
                 print("Do recursively for all problems.")
             elif command[3].isalpha() :
                 problemCode = command[3]
-                print("Contest num : ", contestNum, "Problem : ", problemCode)
+                URL = mainUrl + contest + str(contestNum) + "/" + problem + problemCode
+                print("URL : ", URL)
             else:
                 print(command)
                 printError()
@@ -37,9 +42,16 @@ def inputHandler():
             printError()
     elif lengthOfCommand == 3 and command[1].lower() == 'p' :
         if command[2].isalnum():
-            problemCode = command[2][-1]
-            problemNum = command[2][:-1]
-            print("Problem Number : ",problemNum," Code : ",problemCode)
+            j = 0
+            for i in command[2]:
+                if not i.isnumeric():
+                    break
+                else:
+                    j+=1
+            problemCode = command[2][j:]
+            problemNum = command[2][:j]
+            URL = mainUrl + problemset + problem + problemNum + "/" + problemCode 
+            print("URL : " + URL)
         else:
             printError()
     else:
