@@ -1,0 +1,21 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/devilunraveled/Projects/CFParser/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20220828.0/
+URL	main.py	/^URL = "";$/;"	v
+contest	main.py	/^contest = "contest\/"$/;"	v
+inputHandler	main.py	/^def inputHandler():$/;"	f
+main	main.py	/^def main():$/;"	f
+mainUrl	main.py	/^mainUrl = "https:\/\/codeforces.com\/"$/;"	v
+notValid	main.py	/^def notValid( command ):$/;"	f
+parseURL	siteparser.py	/^def parseURL( URL ):$/;"	f
+printError	main.py	/^def printError( ):$/;"	f
+problem	main.py	/^problem = "problem\/"$/;"	v
+problemset	main.py	/^problemset = "problemset\/"$/;"	v

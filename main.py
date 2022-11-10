@@ -1,7 +1,5 @@
 import sys # For accessing the system information, taking argument from command line args.
-import datetime as d # For accessing date and time for comment block.
-from urllib.request import Request, urlopen # For parsing and downloading the html from a site.
-
+from siteparser import parseURL
 
 mainUrl = "https://codeforces.com/"
 contest = "contest/"
@@ -35,6 +33,7 @@ def inputHandler():
                 problemCode = command[3]
                 URL = mainUrl + contest + str(contestNum) + "/" + problem + problemCode
                 print("URL : ", URL)
+                parseURL(URL)
             else:
                 print(command)
                 printError()
@@ -52,6 +51,7 @@ def inputHandler():
             problemNum = command[2][:j]
             URL = mainUrl + problemset + problem + problemNum + "/" + problemCode 
             print("URL : " + URL)
+            parseURL(URL)
         else:
             printError()
     else:
