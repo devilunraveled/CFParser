@@ -14,4 +14,5 @@ def parseURL( URL ):
     # Ref : https://www.crummy.com/software/BeautifulSoup/bs4/doc/
     Output = PageHTML.find_all('pre')[1].string[:-1]
     # The [:-1] is to remove the additonal line printed.
-    print(ProblemStatement.get_text())
+    print(Input)
+    print(Output)

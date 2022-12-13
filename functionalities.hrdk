@@ -1,0 +1,33 @@
+Purpose : Making Problem, Test Cases related to it available to coder. Initialy for CF, gradually to other platforms.
+Vision : 
+
+~~ GENERAL
+
+~~~ 1. Get Your Rating ( Current and Peak ).
+~~~ 2. Identify Weaknesses : Based on problem tags.
+~~~ 3. Upsolve Stack.
+~~~ 4. Rating Difference from tourist. ;)
+
+~~ FOR PRACTICE PROBLEMS 
+
+~~~ 1. User can have random problem, based on tags available and rating.
+~~~ 2. Or, User can enter a particular problem code.
+~~~ 3. Give user test cases, a script to run them and tally with output obtained.
+~~~ 4. Provide Support for submitting a particular problem, via a single command ( Set suitable compiler from a compiler-prefference file ).
+~~~ 5. Similar Problems will appear for practice, after submitting this one, along with reason for there appearence, that is, the problem that they are related to.
+
+
+~~ CONTEST GENERAL
+
+~~~ 1. Setting Up an Alarm before a contest.
+~~~ 2. Auto-Participate ( Will Require credentials ).
+~~~ 3. Get Number Of Participants.
+~~~ 4. Get Current Standings.
+~~~ 5. Get Contest Stats : No. Of Problems, No. Of Failed Attemts, Penalty etc.
+
+~~ PARTICIPATING IN CONTESTS
+
+~~~ 1. Generate folders for each problem.
+~~~ 2. Generate test cases as in "practice problem".
+~~~ 3. Automatically move to next question when a problem is submitted.
+~~~ 4. Contest Over : When contestant has solved enough problems, and wishes to leave, add the remaing problems to Upsolve Stack.
