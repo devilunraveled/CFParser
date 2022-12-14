@@ -12,13 +12,13 @@ class Colors :
     GREY = Base + "30"
     GREEN = Base + "32m"
     CYAN = Base + "36m"
-    BLUE = Base + "34m"
-    VIOLET = Base + "92m"
-    ORANGE = Base + "11m"
+    BLUE = "\033[38;5;26m"
+    VIOLET = "\033[38;5;206m"
+    ORANGE = "\033[38;5;214m"
     RED = Base + "31m"
     BLACK = Base + "30m"
 
-username = "tourist"
+username = input("Enter The Username : ")
 
 def getRatingFromText( contestHistory ):
     rating = ""
@@ -48,7 +48,7 @@ def createRank( rating, handle ):
     elif rating < 3000 :
         handle = Colors.RED + handle + RESET
     else :
-        handle = Colors.BLACK + handle[0] + Colors.RED + handle[1:-1] + RESET
+        handle = Colors.BLACK + handle[0] + Colors.RED + handle[1:] + RESET
 
     return handle
 
@@ -63,6 +63,6 @@ def getRating( UserName ):
     
     UserName =  createRank( rating, UserName )
 
-    print( "Current Rating of " + UserName + " : " + userRating )
-
-getRating( username )
+    # print( "Current Rating of " + UserName + " : " + userRating )
+    
+    return userRating
