@@ -1,0 +1,32 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/devilunraveled/Projects/CFParser/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20220828.0/
+BASEURL	src/requesthandler.py	/^BASEURL = "https:\/\/codeforces.com\/api\/"$/;"	v
+Base	src/output/colors.py	/^    Base = "\\033[38;5;"$/;"	v	class:Color
+Black	src/output/colors.py	/^    Black = Base + "000" + End$/;"	v	class:Color
+Blue	src/output/colors.py	/^    Blue = Base + "004" + End$/;"	v	class:Color
+Color	src/output/colors.py	/^class Color :$/;"	c
+Cyan	src/output/colors.py	/^    Cyan = Base + "086" + End$/;"	v	class:Color
+E	src/userdata.py	/^from errors import requestErrors as E$/;"	x	nameref:unknown:requestErrors
+End	src/output/colors.py	/^    End = "m"$/;"	v	class:Color
+Errenous	src/errors/requestErrors.py	/^def Errenous( string ):$/;"	f
+Green	src/output/colors.py	/^    Green = Base + "002" + End$/;"	v	class:Color
+HANDLE	src/requesthandler.py	/^HANDLE = "?handles="$/;"	v
+Orange	src/output/colors.py	/^    Orange = Base + "209" + End$/;"	v	class:Color
+R	src/requesthandler.py	/^import requests as R$/;"	I	nameref:module:requests
+Red	src/output/colors.py	/^    Red = Base + "001" + End$/;"	v	class:Color
+Reset	src/output/colors.py	/^    Reset = "\\033[0m"$/;"	v	class:Color
+Violet	src/output/colors.py	/^    Violet = Base + "201" + End$/;"	v	class:Color
+createRequest	src/requesthandler.py	/^def createRequest( method, arguments ):$/;"	f
+displayUserData	src/userdata.py	/^def displayUserData( data ):$/;"	f
+getAllData	src/userdata.py	/^def getAllData( username ):$/;"	f
+processRequest	src/requesthandler.py	/^def processRequest( requesturl ):$/;"	f
+username	src/userdata.py	/^    username = input("Enter The username : ")$/;"	v
