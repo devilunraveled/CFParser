@@ -63,7 +63,14 @@ def extractProblemInput( inputTitleTag ) :
             problem.inputData += character
       
     problem.inputData = problem.inputData.strip()
-    print( problem.inputData )
+    return problem.inputData
+
+def extractProblemOutput( outputTitleTag ):
+    global problem
+    outputData = str( outputTitleTag.next_sibling.text )
+    problem.outputData = outputData.strip()
+
+    return problem.outputData
 
 def extractProblemInfo( problemHTML ):
     
@@ -72,7 +79,7 @@ def extractProblemInfo( problemHTML ):
     #problemConstraints = extractProblemConstraints( problemHTML )
     #problemStatement = extractProblemStatement( problemHTML )
     problemInput = extractProblemInput( inputTitleTag )
-    # problemOutput = extractProblemOutput( outputTitleTag )
+    problemOutput = extractProblemOutput( outputTitleTag )
 
     datastring = str( problemHTML )
 
