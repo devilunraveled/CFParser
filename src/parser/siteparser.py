@@ -13,6 +13,20 @@ class Problem :
     inputData = ''
     outputData = ''
 
+    def __str__(self):
+        string = "Title : " + self.problemName
+        string += '\n'
+        string += "Problem Statement : " + self.problemStatement
+        string += '\n'
+        string += "Memory Limit : " + str( self.memoryLimit )
+        string += '\n'
+        string += "Time Limit : " + str( self.timeLimit )
+        string += '\n'
+        string += "Input : \n" + self.inputData
+        string += '\n'
+        string += "Output : \n" + self.outputData
+        return string
+
 link = "https://codeforces.com/problemset/problem/1779/D"
 
 problem = Problem()
@@ -75,8 +89,7 @@ def extractProblemOutput( outputTitleTag ):
 def extractProblemInfo( problemHTML ):
     
     problemTitle = extractProblemTitle( problemHTML )
-    print( "Title : ", problemTitle )
-    #problemConstraints = extractProblemConstraints( problemHTML )
+    # problemConstraints = extractProblemConstraints( problemHTML )
     #problemStatement = extractProblemStatement( problemHTML )
     problemInput = extractProblemInput( inputTitleTag )
     problemOutput = extractProblemOutput( outputTitleTag )
@@ -127,4 +140,6 @@ problemHTML = parser( link )
 inputTitleTag = problemHTML
 outputTitleTag = problemHTML
 
-extractProblemInfo( problemHTML ) 
+extractProblemInfo( problemHTML )
+
+print( problem )
