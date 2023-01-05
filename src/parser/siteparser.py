@@ -6,7 +6,9 @@ from bs4 import BeautifulSoup
 class Problem :
     problemName = ''
     problemStatement = ''
+    memoryDesc = ''
     memoryLimit = 0
+    timeDesc = ''
     timeLimit = 0
     inputDescription = ''
     outputDescription = ''
@@ -18,9 +20,9 @@ class Problem :
         string += '\n'
         string += "Problem Statement : " + self.problemStatement
         string += '\n'
-        string += "Memory Limit : " + str( self.memoryLimit )
+        string += "Memory Limit : " + str( self.memoryDesc )
         string += '\n'
-        string += "Time Limit : " + str( self.timeLimit )
+        string += "Time Limit : " + str( self.timeDesc )
         string += '\n'
         string += "Input : \n" + self.inputData
         string += '\n'
@@ -54,6 +56,28 @@ def extractProblemTitle( problemHTML ):
     
     return problem.problemName
 
+def extractProblemConstraints( problemHTML ):
+    global problem
+    
+    for child in problemHTML.descendants :
+        try :
+            if "class" in child.attrs.keys() and "time-limit" in child["class"] :
+                timeString = str( child.next_element.next_element.next_element ).split(" ")
+                problem.timeDesc = " ".join(timeString)
+                problem.timeLimit = int( timeString[0] )
+        except :
+            continue
+
+    for child in problemHTML.descendants :
+        try :
+            if "class" in child.attrs.keys() and "memory-limit" in child["class"] :
+                memoryString = str( child.next_element.next_element.next_element ).split(" ")
+                problem.memoryDesc = " ".join(memoryString)
+                problem.memoryLimit = int( memoryString[0] )
+        except :
+            continue
+
+    return [problem.timeLimit, problem.memoryLimit]
 def extractProblemInput( inputTitleTag ) :
     inputData = str( inputTitleTag.next_sibling )
     global problem
@@ -89,7 +113,7 @@ def extractProblemOutput( outputTitleTag ):
 def extractProblemInfo( problemHTML ):
     
     problemTitle = extractProblemTitle( problemHTML )
-    # problemConstraints = extractProblemConstraints( problemHTML )
+    problemConstraints = extractProblemConstraints( problemHTML )
     #problemStatement = extractProblemStatement( problemHTML )
     problemInput = extractProblemInput( inputTitleTag )
     problemOutput = extractProblemOutput( outputTitleTag )
