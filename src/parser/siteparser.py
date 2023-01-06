@@ -12,8 +12,8 @@ class Problem :
     timeLimit = 0
     inputDescription = ''
     outputDescription = ''
-    inputData = ''
-    outputData = ''
+    inputData = []
+    outputData = []
 
     def __str__(self):
         string = "Title : " + self.problemName
@@ -28,12 +28,14 @@ class Problem :
         string += '\n'
         string += "Output Description : \n" + self.outputDescription
         string += '\n'
-        string += "Input : \n" + self.inputData
-        string += '\n'
-        string += "Output : \n" + self.outputData
+        for i in range ( len(self.inputData) ) :
+            string += "Input : \n" + self.inputData[i]
+            string += '\n'
+            string += "Output : \n" + self.outputData[i]
+            string += '\n'
         return string
 
-link = "https://codeforces.com/problemset/problem/1768/B"
+link = "https://codeforces.com/problemset/problem/1600/B"
 
 problem = Problem()
 
@@ -59,11 +61,12 @@ def extractProblemTitle( problemHTML ):
                 if found == 0 :
                     problem.problemName = child.text
                     found += 1
-                elif found == 1 :
-                    inputTitleTag = child
-                    found += 1
-                elif found == 2 :
-                    outputTitleTag = child
+                elif 'input' in child.parent["class"]:
+                        inputTitleTag.append(child)
+                        found += 1
+                else :
+                    if 'output' in child.parent["class"]:
+                        outputTitleTag.append(child)
         except :
             continue
     
@@ -187,37 +190,43 @@ def extractIODescription( problemHTML ):
     problem.inputDescription = inputInfo.strip()
 
 def extractProblemInput( inputTitleTag ) :
-    inputData = str( inputTitleTag.next_sibling )
     global problem
-    
-    counter = 1
-    insideTag = False
-    
-    for i in range ( len(inputData) ):
-        character = inputData[i]
 
-        if character == '<':
-            insideTag = True
-            counter = 1 - counter
-            if ( counter == 0 ) :
-                problem.inputData += '\n'
-        elif character == '>':
-            insideTag = False
-        elif not(insideTag):
-            problem.inputData += character
-      
-    problem.inputData = problem.inputData.strip()
+    for i in range ( len(inputTitleTag) ):
+        inputData = str( inputTitleTag[i].next_sibling )
+        
+        counter = 1
+        insideTag = False
+        inpData = ""
+
+        for i in range ( len(inputData) ):
+            character = inputData[i]
+
+            if character == '<':
+                insideTag = True
+                counter = 1 - counter
+                if ( counter == 0 ) :
+                    inpData += '\n'
+            elif character == '>':
+                insideTag = False
+            elif not(insideTag):
+                inpData += character
+          
+        problem.inputData.append( inpData.strip() )
     return problem.inputData
 
 def extractProblemOutput( outputTitleTag ):
     global problem
-    outputData = str( outputTitleTag.next_sibling.text )
-    problem.outputData = outputData.strip()
-
+    
+    for i in range ( len( outputTitleTag ) ):
+        outputData = str( outputTitleTag[i].next_sibling.text )
+        problem.outputData.append(outputData.strip())
+    
     return problem.outputData
 
 def extractProblemInfo( problemHTML ):
     global problem
+    global moreExamples
 
     problemTitle = extractProblemTitle( problemHTML )
     problemConstraints = extractProblemConstraints( problemHTML )
@@ -248,8 +257,10 @@ def parser( link ):
 
 problemHTML = parser( link )
 
-inputTitleTag = problemHTML
-outputTitleTag = problemHTML
+inputTitleTag = []
+outputTitleTag = []
+
+moreExamples = True
 
 extractProblemInfo( problemHTML )
 
