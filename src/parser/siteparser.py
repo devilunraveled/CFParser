@@ -147,7 +147,7 @@ def extractIODescription( problemHTML ):
 
     inputInfo = ""
     inputDesc = str(inputDescTag.parent)
-    
+
     insideTag = False
     started = False
 
@@ -163,10 +163,10 @@ def extractIODescription( problemHTML ):
             insideTag = False
         elif not(insideTag) and started:
             inputInfo += character
-    
+
     outputInfo = ""
     outputDesc = str( outputDescTag.parent )
-    
+
     insideTag = False
     started = False
 
@@ -187,11 +187,9 @@ def extractIODescription( problemHTML ):
     problem.inputDescription = inputInfo.strip()
 
 def extractProblemInput( inputTitleTag ) :
-    inputData = str( inputTitleTag )
+    inputData = str( inputTitleTag.next_sibling )
     global problem
     
-    # print(inputData)
-
     counter = 1
     insideTag = False
     
@@ -257,3 +255,5 @@ extractProblemInfo( problemHTML )
 
 print( problem )
 # print( purifySyntax( problem.problemStatement ) )
+# print( purifySyntax( problem.inputDescription ) )
+# print( purifySyntax( problem.outputDescription ) )
