@@ -14,6 +14,7 @@ class Problem :
     outputDescription = ''
     inputData = []
     outputData = []
+    note = ''
 
     def __str__(self):
         string = "Title : " + self.problemName
@@ -33,6 +34,7 @@ class Problem :
             string += '\n'
             string += "Output : \n" + self.outputData[i]
             string += '\n'
+        string += "Note : \n" + self.note
         return string
 
 link = "https://codeforces.com/problemset/problem/1600/B"
@@ -188,6 +190,29 @@ def extractIODescription( problemHTML ):
      
     problem.outputDescription = outputInfo.strip()
     problem.inputDescription = inputInfo.strip()
+
+    noteInfo = ""
+    noteDesc = str( outputDescTag.parent )
+
+    insideTag = False
+    started = False
+
+    for i in range ( len( noteDesc ) ) :
+        character = outputDesc[i]
+        if character == '<' :
+            insideTag = True
+            if i < len( noteDesc ) - 1 and noteDesc[i + 1] == 'p' :
+                noteInfo += '\n'
+                i += 1
+                started = True
+        elif character == '>' :
+            insideTag = False
+        elif not(insideTag) and started:
+            noteInfo += character
+     
+    problem.outputDescription = outputInfo.strip()
+    problem.inputDescription = inputInfo.strip()
+    problem.note = noteInfo.strip()
 
 def extractProblemInput( inputTitleTag ) :
     global problem
