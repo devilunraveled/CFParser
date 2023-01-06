@@ -192,13 +192,13 @@ def extractIODescription( problemHTML ):
     problem.inputDescription = inputInfo.strip()
 
     noteInfo = ""
-    noteDesc = str( outputDescTag.parent )
+    noteDesc = str( noteTag.parent )
 
     insideTag = False
     started = False
 
     for i in range ( len( noteDesc ) ) :
-        character = outputDesc[i]
+        character = noteDesc[i]
         if character == '<' :
             insideTag = True
             if i < len( noteDesc ) - 1 and noteDesc[i + 1] == 'p' :
