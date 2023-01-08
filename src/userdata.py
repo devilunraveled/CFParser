@@ -1,10 +1,17 @@
+# DISPLAYINFO :
+# Name : First and Last Name
+# Location : City, Country 
+# Rating : current rating (max rating)
+# Rank : current rank (max rank)
+# Last Online : Time and Date
+# Registered  : Time and Date
+# Contribution : con.
+
 from requesthandler import *
 from output import colors 
 from errors import requestErrors as E
 import sys
 from datetime import datetime
-
-
 
 # Whatever data is requested, this function can be called to retrieve the entire 
 # userdata made available by the CodeForces API.
@@ -42,6 +49,9 @@ def displayUserData( data ):
             location = data["city"]
         if "country" in data.keys() :
             location = location + ", " + data["country"]
+        if "rating" not in data.keys() :                            #For unrated users, the rating field is not created.
+            data["rating"] = data["maxRating"] = 0
+            data["rank"] = data["maxRank"] = 'Unranked'
 
         if name != "" :
             print("Name : " + name )
@@ -54,17 +64,6 @@ def displayUserData( data ):
         print( 'Contribution : %d' % ( data["contribution"] ) )
     except Exception as e :
         print("Data Could Not Be Succesfully retrieved for the given user.")
-# DISPLAYINFO :
-# Name : First and Last Name
-# Location : City, Country 
-# Rating : current rating (max rating)
-# Rank : current rank (max rank)
-# Last Online : Time and Date
-# Registered  : Time and Date
-# Contribution : con.
-
-
-
 
 while( True ):
     username = input("Enter The username : ")
