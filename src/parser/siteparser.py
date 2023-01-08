@@ -271,18 +271,9 @@ def parser( link ):
             problemTag = child
 #Now, we have found at what point, the search should begin for the problem statement.
 
-    return problemTag
-
-problemHTML = parser( link )
+    return exytractproblemInfo( problemTag )
 
 inputTitleTag = []
 outputTitleTag = []
 
-moreExamples = True
-
-extractProblemInfo( problemHTML )
-
 print( problem )
-# print( purifySyntax( problem.problemStatement ) )
-# print( purifySyntax( problem.inputDescription ) )
-# print( purifySyntax( problem.outputDescription ) )
