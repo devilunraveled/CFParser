@@ -34,21 +34,13 @@ class Problem :
             string += '\n'
             string += "Output : \n" + self.outputData[i]
             string += '\n'
-        string += "Note : \n" + self.note
+        if self.note :
+            string += "Note : \n" + self.note
         return string
 
-link = "https://codeforces.com/problemset/problem/1600/B"
+link = "https://codeforces.com/problemset/problem/1773/I"
 
 problem = Problem()
-
-def purifySyntax( string ):
-    htmlSyntax = ["$$$", "&lt", "&gt", "&amp", "&quot", "&apos", "&cent", "&pound", "&yen", "&euro", "&copy", "&reg"]
-    change = ["$", "<", ">", "&", ' " ', " ' ", "¢", "£", "¥", "€", "©", "®"]
-    
-    for i in range ( len(change ) ):
-        string = string.replace(htmlSyntax[i], change[i] )
-
-    return string
 
 
 def extractProblemTitle( problemHTML ):
@@ -101,7 +93,6 @@ def extractProblemStatement( problemHTML ):
     global problem
 
     while ( True ) :
-        # print( problemHTML )
         try :
             if ( "class" in problemHTML.attrs.keys() and "output-file" in problemHTML["class"] ) :
                 problemHTML = problemHTML.next_element
@@ -191,25 +182,28 @@ def extractIODescription( problemHTML ):
     problem.outputDescription = outputInfo.strip()
     problem.inputDescription = inputInfo.strip()
 
-    noteInfo = ""
-    noteDesc = str( noteTag.parent )
+    try :
+        noteInfo = ""
+        noteDesc = str( noteTag.parent )
 
-    insideTag = False
-    started = False
+        insideTag = False
+        started = False
 
-    for i in range ( len( noteDesc ) ) :
-        character = noteDesc[i]
-        if character == '<' :
-            insideTag = True
-            if i < len( noteDesc ) - 1 and noteDesc[i + 1] == 'p' :
-                noteInfo += '\n'
-                i += 1
-                started = True
-        elif character == '>' :
-            insideTag = False
-        elif not(insideTag) and started:
-            noteInfo += character
-     
+        for i in range ( len( noteDesc ) ) :
+            character = noteDesc[i]
+            if character == '<' :
+                insideTag = True
+                if i < len( noteDesc ) - 1 and noteDesc[i + 1] == 'p' :
+                    noteInfo += '\n'
+                    i += 1
+                    started = True
+            elif character == '>' :
+                insideTag = False
+            elif not(insideTag) and started:
+                noteInfo += character
+    except :
+        noteInfo = ""
+
     problem.outputDescription = outputInfo.strip()
     problem.inputDescription = inputInfo.strip()
     problem.note = noteInfo.strip()
@@ -263,7 +257,6 @@ def extractProblemInfo( problemHTML ):
     return problem
 
 def parser( link ): 
-
     fp = urlreq.urlopen(link)
     html = fp.read().decode('utf-8')
     fp.close()
