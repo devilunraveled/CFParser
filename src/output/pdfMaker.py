@@ -93,7 +93,7 @@ def createTex( problem, heading ) :
     #Adding Example Inputs/Outputs
     skeleton += "\n\\subsection*{Examples}"
     for i in range ( len( problem.inputData ) ) :
-        skeleton += "\n\\fbox{\\parbox{\\textwidth}{%"
+        skeleton += "\\fbox{\\parbox{\\textwidth}{%"
         skeleton += "\n\\subsubsection*{Input}"
         skeleton += purifySyntax( problem.inputData[i] )
         skeleton += "\n\\subsubsection*{Output}"
