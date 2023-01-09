@@ -24,40 +24,48 @@ Green	src/output/colors.py	/^    Green = Base + "002" + End$/;"	v	class:Color
 HANDLE	src/requesthandler.py	/^HANDLE = "?handles="$/;"	v
 Next Feature In Development :	README.md	/^### Next Feature In Development :$/;"	S	section:CFParser""Basic Features :
 Orange	src/output/colors.py	/^    Orange = Base + "209" + End$/;"	v	class:Color
+P	src/output/pdfMaker.py	/^import siteparser as P$/;"	I	nameref:module:siteparser
+P	tests/tester.py	/^import pdfMaker as P$/;"	I	nameref:module:pdfMaker
 Problem	src/parser/siteparser.py	/^class Problem :$/;"	c
 R	src/requesthandler.py	/^import requests as R$/;"	I	nameref:module:requests
 Red	src/output/colors.py	/^    Red = Base + "001" + End$/;"	v	class:Color
 Reset	src/output/colors.py	/^    Reset = "\\033[0m"$/;"	v	class:Color
 Violet	src/output/colors.py	/^    Violet = Base + "201" + End$/;"	v	class:Color
+__init__	src/parser/siteparser.py	/^    def __init__(self):$/;"	m	class:Problem
 __str__	src/parser/siteparser.py	/^    def __str__(self):$/;"	m	class:Problem
+createContestPDF	src/output/pdfMaker.py	/^def createContestPDF( problemlinks, contestName ):$/;"	f
+createFile	src/output/pdfMaker.py	/^def createFile( texFile, fileName ):$/;"	f
 createRequest	src/requesthandler.py	/^def createRequest( method, arguments ):$/;"	f
+createTex	src/output/pdfMaker.py	/^def createTex( problem, heading ) :$/;"	f
 displayUserData	src/userdata.py	/^def displayUserData( data ):$/;"	f
-extractIODescription	src/parser/siteparser.py	/^def extractIODescription( problemHTML ):$/;"	f
-extractProblemConstraints	src/parser/siteparser.py	/^def extractProblemConstraints( problemHTML ):$/;"	f
-extractProblemInfo	src/parser/siteparser.py	/^def extractProblemInfo( problemHTML ):$/;"	f
-extractProblemInput	src/parser/siteparser.py	/^def extractProblemInput( inputTitleTag ) :$/;"	f
-extractProblemOutput	src/parser/siteparser.py	/^def extractProblemOutput( outputTitleTag ):$/;"	f
-extractProblemStatement	src/parser/siteparser.py	/^def extractProblemStatement( problemHTML ):$/;"	f
-extractProblemTitle	src/parser/siteparser.py	/^def extractProblemTitle( problemHTML ):$/;"	f
+extractIODescription	src/parser/siteparser.py	/^def extractIODescription( problemHTML, problem ):$/;"	f
+extractProblemConstraints	src/parser/siteparser.py	/^def extractProblemConstraints( problemHTML, problem ):$/;"	f
+extractProblemInfo	src/parser/siteparser.py	/^def extractProblemInfo( problemHTML, problem, inputTitleTag, outputTitleTag ):$/;"	f
+extractProblemInput	src/parser/siteparser.py	/^def extractProblemInput( inputTitleTag, problem ) :$/;"	f
+extractProblemOutput	src/parser/siteparser.py	/^def extractProblemOutput( outputTitleTag, problem ):$/;"	f
+extractProblemStatement	src/parser/siteparser.py	/^def extractProblemStatement( problemHTML, problem ):$/;"	f
+extractProblemTitle	src/parser/siteparser.py	/^def extractProblemTitle( problemHTML, problem, inputTitleTag, outputTitleTag ):$/;"	f
 getAllData	src/userdata.py	/^def getAllData( username ):$/;"	f
 inputData	src/parser/siteparser.py	/^    inputData = []$/;"	v	class:Problem
 inputDescription	src/parser/siteparser.py	/^    inputDescription = ''$/;"	v	class:Problem
 inputTitleTag	src/parser/siteparser.py	/^inputTitleTag = []$/;"	v
-link	src/parser/siteparser.py	/^link = "https:\/\/codeforces.com\/problemset\/problem\/1600\/B"$/;"	v
+link	src/parser/siteparser.py	/^link = "https:\/\/codeforces.com\/problemset\/problem\/1773\/I"$/;"	v
+link	tests/tester.py	/^link = "https:\/\/codeforces.com\/problemset\/problem\/%s\/%s"$/;"	v
+makePDF	src/output/pdfMaker.py	/^def makePDF( problemLink, fileName, contest = 0 ):$/;"	f
 memoryDesc	src/parser/siteparser.py	/^    memoryDesc = ''$/;"	v	class:Problem
 memoryLimit	src/parser/siteparser.py	/^    memoryLimit = 0$/;"	v	class:Problem
-moreExamples	src/parser/siteparser.py	/^moreExamples = True$/;"	v
+normalTest	tests/tester.py	/^def normalTest():$/;"	f
 note	src/parser/siteparser.py	/^    note = ''$/;"	v	class:Problem
 outputData	src/parser/siteparser.py	/^    outputData = []$/;"	v	class:Problem
 outputDescription	src/parser/siteparser.py	/^    outputDescription = ''$/;"	v	class:Problem
 outputTitleTag	src/parser/siteparser.py	/^outputTitleTag = []$/;"	v
 parser	src/parser/siteparser.py	/^def parser( link ): $/;"	f
-problem	src/parser/siteparser.py	/^problem = Problem()$/;"	v
-problemHTML	src/parser/siteparser.py	/^problemHTML = parser( link )$/;"	v
 problemName	src/parser/siteparser.py	/^    problemName = ''$/;"	v	class:Problem
 problemStatement	src/parser/siteparser.py	/^    problemStatement = ''$/;"	v	class:Problem
 processRequest	src/requesthandler.py	/^def processRequest( requesturl ):$/;"	f
-purifySyntax	src/parser/siteparser.py	/^def purifySyntax( string ):$/;"	f
+purifySyntax	src/output/pdfMaker.py	/^def purifySyntax( string ):$/;"	f
+resetSkeleton	src/output/pdfMaker.py	/^def resetSkeleton( heading ):$/;"	f
+skeleton	src/output/pdfMaker.py	/^skeleton = ""$/;"	v
 timeDesc	src/parser/siteparser.py	/^    timeDesc = ''$/;"	v	class:Problem
 timeLimit	src/parser/siteparser.py	/^    timeLimit = 0$/;"	v	class:Problem
 urlreq	src/parser/siteparser.py	/^import urllib.request as urlreq$/;"	I	nameref:module:urllib.request

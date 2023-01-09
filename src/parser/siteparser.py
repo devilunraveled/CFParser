@@ -37,17 +37,22 @@ class Problem :
         if self.note :
             string += "Note : \n" + self.note
         return string
+    def __init__(self):
+        self.problemName = ""
+        self.problemStatement = ""
+        self.memoryDesc = ""
+        self.memoryLimit = 0
+        self.timeDesc = ""
+        self.timeLimit = 0
+        self.inputDescription = ""
+        self.outputDescription = ""
+        self.inputData = []
+        self.outputData = []
+        self.note = ''
 
 link = "https://codeforces.com/problemset/problem/1773/I"
 
-problem = Problem()
-
-
-def extractProblemTitle( problemHTML ):
-    global problem
-    global inputTitleTag
-    global outputTitleTag
-
+def extractProblemTitle( problemHTML, problem, inputTitleTag, outputTitleTag ):
     found = 0
     for child in problemHTML.descendants :
         try :
@@ -64,10 +69,9 @@ def extractProblemTitle( problemHTML ):
         except :
             continue
     
-    return problem.problemName
+    return problem
 
-def extractProblemConstraints( problemHTML ):
-    global problem
+def extractProblemConstraints( problemHTML, problem ):
     
     for child in problemHTML.descendants :
         try :
@@ -87,10 +91,9 @@ def extractProblemConstraints( problemHTML ):
         except :
             continue
 
-    return [problem.timeLimit, problem.memoryLimit]
+    return problem
 
-def extractProblemStatement( problemHTML ):
-    global problem
+def extractProblemStatement( problemHTML, problem ):
 
     while ( True ) :
         try :
@@ -119,9 +122,10 @@ def extractProblemStatement( problemHTML ):
             string += character
     
     problem.problemStatement = string.strip()
+    
+    return problem
 
-def extractIODescription( problemHTML ):
-    global problem
+def extractIODescription( problemHTML, problem ):
 
     counter = 0
 
@@ -208,8 +212,9 @@ def extractIODescription( problemHTML ):
     problem.inputDescription = inputInfo.strip()
     problem.note = noteInfo.strip()
 
-def extractProblemInput( inputTitleTag ) :
-    global problem
+    return problem
+    
+def extractProblemInput( inputTitleTag, problem ) :
 
     for i in range ( len(inputTitleTag) ):
         inputData = str( inputTitleTag[i].next_sibling )
@@ -232,27 +237,23 @@ def extractProblemInput( inputTitleTag ) :
                 inpData += character
           
         problem.inputData.append( inpData.strip() )
-    return problem.inputData
+    return problem
 
-def extractProblemOutput( outputTitleTag ):
-    global problem
-    
+def extractProblemOutput( outputTitleTag, problem ):
+
     for i in range ( len( outputTitleTag ) ):
         outputData = str( outputTitleTag[i].next_sibling.text )
         problem.outputData.append(outputData.strip())
     
-    return problem.outputData
+    return problem
 
-def extractProblemInfo( problemHTML ):
-    global problem
-    global moreExamples
-
-    problemTitle = extractProblemTitle( problemHTML )
-    problemConstraints = extractProblemConstraints( problemHTML )
-    problemStatement = extractProblemStatement( problemHTML )
-    ioDescription = extractIODescription( problemHTML )
-    problemInput = extractProblemInput( inputTitleTag )
-    problemOutput = extractProblemOutput( outputTitleTag )
+def extractProblemInfo( problemHTML, problem, inputTitleTag, outputTitleTag ):
+    problem = extractProblemTitle( problemHTML, problem, inputTitleTag, outputTitleTag )
+    problem = extractProblemConstraints( problemHTML, problem )
+    problem = extractProblemStatement( problemHTML, problem )
+    problem = extractIODescription( problemHTML, problem )
+    problem = extractProblemInput( inputTitleTag, problem )
+    problem = extractProblemOutput( outputTitleTag, problem )
         
     return problem
 
@@ -261,7 +262,9 @@ def parser( link ):
     html = fp.read().decode('utf-8')
     fp.close()
     # print(html)
-
+    problem = Problem()
+    inputTitleTag = []
+    outputTitleTag = []
     htmlObject = BeautifulSoup(html, 'html.parser')
 
     problemTag = ""
@@ -271,9 +274,9 @@ def parser( link ):
             problemTag = child
 #Now, we have found at what point, the search should begin for the problem statement.
 
-    return exytractproblemInfo( problemTag )
+    return extractProblemInfo( problemTag, problem, inputTitleTag, outputTitleTag )
 
 inputTitleTag = []
 outputTitleTag = []
 
-print( problem )
+# print( problem )

@@ -10,8 +10,10 @@
      4. Input/Output Description
      5. Input(s) / Output (s) based on examples
      6. Additional Note regarding the examples
-
+3. Creating a pdf file based on the questions gathered from parser.
 
 ### Next Feature In Development :
 
-Creating a pdf file based on the questions gathered from parser.
+Adding support for live-contests
+
+> **_Note:_** For interactive problems and problems that have diagrams/figures, support is not yet added, **DO NOT** use the parser for such problems as the complete problem/parts of it may not be accesible to you.
