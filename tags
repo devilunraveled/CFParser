@@ -41,6 +41,7 @@ createContestPDF	src/output/pdfMaker.py	/^def createContestPDF( problemlinks, co
 createFile	src/output/pdfMaker.py	/^def createFile( texFile, fileName ):$/;"	f
 createRequest	src/requesthandler.py	/^def createRequest( method, arguments ):$/;"	f
 createTex	src/output/pdfMaker.py	/^def createTex( problem, heading ) :$/;"	f
+displayClosingMessage	main.py	/^def displayClosingMessage() :$/;"	f
 displayUserData	src/userdata.py	/^def displayUserData( data ):$/;"	f
 extractIODescription	src/parser/siteparser.py	/^def extractIODescription( problemHTML, problem ):$/;"	f
 extractProblemConstraints	src/parser/siteparser.py	/^def extractProblemConstraints( problemHTML, problem ):$/;"	f
@@ -61,6 +62,7 @@ memoryDesc	src/parser/siteparser.py	/^    memoryDesc = ''$/;"	v	class:Problem
 memoryLimit	src/parser/siteparser.py	/^    memoryLimit = 0$/;"	v	class:Problem
 normalTest	tests/tester.py	/^def normalTest():$/;"	f
 note	src/parser/siteparser.py	/^    note = ''$/;"	v	class:Problem
+options	main.py	/^def options():$/;"	f
 outputData	src/parser/siteparser.py	/^    outputData = []$/;"	v	class:Problem
 outputDescription	src/parser/siteparser.py	/^    outputDescription = ''$/;"	v	class:Problem
 outputTitleTag	src/parser/siteparser.py	/^outputTitleTag = []$/;"	v

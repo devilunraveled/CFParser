@@ -1,4 +1,4 @@
-import os 
+import sys 
 sys.path.insert(0, './src/errors/')
 sys.path.insert(0, './src/output/')
 sys.path.insert(0, './src/parser/')
@@ -15,23 +15,42 @@ def makingPDF( ):
     
     problemLink = ""
 
-    if isint(problemCode[-1]) :
+    if problemCode[-1].isnumeric() :
         contestCode = problemCode[:-2]
         problemLevel = problemCode[-2:]
+    else :
+        contestCode = problemCode[:-1]
+        problemLevel = problemCode[-1]
 
     problemLink = CodeForces + ProblemSet + contestCode + '/' + problemLevel
+    
+    fileName = input("What should be the name of the file? ")
 
-    print( problemLink )
+    Pm.makePDF(problemLink, fileName)
+
+
+def options():
+    print("Press 1 to Solve A problem of your choice")
+    print("Press 0 to exit")
+
+
+def displayClosingMessage() :
+    return 
 
 def CFParser() :
     print( welcomeMessage )
     functionList = [ makingPDF ]
     while True :
-        print( options )
+        options( )
         choice = int( input ("Enter Your Choice : ") )
         
+        if choice == 0 :
+            displayClosingMessage()
+            break
+
         if choice <= len( functionList ) :
             functionList[ choice - 1 ]()
-
+        
+        
 if __name__ == '__main__' :
     CFParser()
