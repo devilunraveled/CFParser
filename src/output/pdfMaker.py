@@ -1,13 +1,38 @@
 import sys
 sys.path.insert( 0, '../parser/')
+
 import os
 import siteparser as P
 import subprocess
 from datetime import date
 
+skeleton = ""
+
+def resetSkeleton( heading ):
+    global skeleton
+
+    skeleton = ""
+
+    if heading == '' :
+        heading = "CodeForces Problem"
+
+    packages = ["inputenc", "xcolor", "amsmath"]
+    # Adding the necessary packages.
+    skeleton = "\documentclass{article}"
+    for i in packages :
+        skeleton += "\n\\usepackage{%s}" % (i)
+    #Title, Date
+    skeleton += "\n\\title{%s}" % ( heading )
+    skeleton += "\n\\date{%s}" % ( date.today().strftime("%B %d, %Y") )
+    skeleton += "\n\\author{}"
+    
+    #Constraints, title etc.
+    skeleton += "\n\\begin{document}"
+    skeleton += "\n\\maketitle"
+
 def purifySyntax( string ):
-    htmlSyntax = ["$$$", "&lt", "&gt", "&amp", "&quot", "&apos", "&cent", "&pound", "&yen", "&euro", "&copy", "&reg", "\n", " " ]
-    change = ["$", "<", ">", "&", ' " ', " ' ", "¢", "£", "¥", "€", "©", "®", "\\\ ", " " ]
+    htmlSyntax = ["$$$", "&lt", "&gt", "&amp", "&quot", "&apos", "&cent", "&pound", "&yen", "&euro", "&copy", "&reg", "\n", " ", "\\xrightarrow", "\\xleftarrow" ]
+    change = ["$", "<", ">", "&", ' " ', " ' ", "¢", "£", "¥", "€", "©", "®", "\\\ ", " ", "\\rightarrow", "\\leftarrow" ]
     
     for i in range ( len(change ) ):
         string = string.replace(htmlSyntax[i], change[i] )
@@ -38,24 +63,8 @@ def createFile( texFile, fileName ):
 
 def createTex( problem, heading ) :
     global skeleton
-
-    if heading == '' :
-        heading = "CodeForces Problem"
-
-    packages = ["inputenc", "xcolor"]
-    # Adding the necessary packages.
-    skeleton = "\documentclass{article}"
-    for i in packages :
-        skeleton += "\n\\usepackage{%s}" % (i)
-    #Title, Date
-    skeleton += "\n\\title{%s}" % ( heading )
-    skeleton += "\n\\date{%s}" % ( date.today().strftime("%B %d, %Y") )
-    skeleton += "\n\\author{}"
     
-    #Constraints, title etc.
-    skeleton += "\n\\begin{document}"
-    skeleton += "\n\\maketitle"
-
+    resetSkeleton( heading )
 
     skeleton += "\n\\section*{%s}" % ( problem.problemName )
     skeleton += "\n\\subsection*{Constriants}"
@@ -97,13 +106,17 @@ def createTex( problem, heading ) :
 
     skeleton += "\n\\end{document}"
     
+    # print(skeleton)
     return skeleton
 
 def makePDF( problemLink, fileName, contest = 0 ):
+    problem = P.Problem()
     problem = P.parser( problemLink ) #The Problem object is stored in the variable problem.
     #Creating the data that is to be written in the .tex file.
+    # print( problem )
     texFile = createTex( problem, "" )
     
+    # print( problem )
     if contest :
         return skeleton
     else :
@@ -118,6 +131,7 @@ def createContestPDF( problemlinks, contestName ):
     
     return createFile( skeleton )
     
-problemLink = "https://codeforces.com/problemset/problem/1783/F"
+# problemLink = "https://codeforces.com/problemset/problem/1703/C"
 
-makePDF( problemLink, "Sample" )
+# print( problem )
+# makePDF( problemLink, "Sample" )
