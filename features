@@ -1,0 +1,11 @@
+!Modify the Working Path to where you want the generated files to be stored.
+set Workingpath = "/home/devilunraveled/CP/CF/"
+
+!Contest-Helper will create problem folders for all the problems of a live contest
+set contestHelper = True
+
+!After the contest is over, you can run the upsolve command to store
+set upsolveStacker = True
+
+!AutoDelete Files realted to a problem ( except the code itself ) after the contest is over
+set autoDelete = True
