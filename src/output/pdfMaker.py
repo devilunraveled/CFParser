@@ -1,40 +1,123 @@
-import os
 import sys
+sys.path.insert( 0, '../parser/')
+import os
+import siteparser as P
 import subprocess
-
-from ..parser import parser
 from datetime import date
 
 def purifySyntax( string ):
-    htmlSyntax = ["$$$", "&lt", "&gt", "&amp", "&quot", "&apos", "&cent", "&pound", "&yen", "&euro", "&copy", "&reg", "\n" ]
-    change = ["$", "<", ">", "&", ' " ', " ' ", "¢", "£", "¥", "€", "©", "®", "\n\n" ]
+    htmlSyntax = ["$$$", "&lt", "&gt", "&amp", "&quot", "&apos", "&cent", "&pound", "&yen", "&euro", "&copy", "&reg", "\n", " " ]
+    change = ["$", "<", ">", "&", ' " ', " ' ", "¢", "£", "¥", "€", "©", "®", "\\\ ", " " ]
     
     for i in range ( len(change ) ):
         string = string.replace(htmlSyntax[i], change[i] )
 
     return string
 
-def createTex( problem, codeAuthor ) :
+def createFile( texFile, fileName ):
+    try :
+        with open( fileName + ".tex", 'w' ) as file :
+            file.write( texFile )
+        
+        command = subprocess.Popen(['pdflatex', fileName + ".tex"])
+        command.communicate()
+        
+        returnCode = command.returncode
+        
+        if returnCode != 0 :
+            os.unlink( fileName + ".pdf")
+            raise Exception("Error Creating The PDF File")
+
+        unwanted = [".tex", ".log", ".aux"]
+        for extension in unwanted :
+            os.unlink( fileName + extension )
+        
+        return 0
+    except :
+        return 1
+
+def createTex( problem, heading ) :
+    global skeleton
+
+    if heading == '' :
+        heading = "CodeForces Problem"
+
     packages = ["inputenc", "xcolor"]
     # Adding the necessary packages.
     skeleton = "\documentclass{article}"
     for i in packages :
         skeleton += "\n\\usepackage{%s}" % (i)
-    skeleton += "\n\\title{%s}" % ( problem.problemName )
-    skeleton += "\n\\author{%s}" % ( codeAuthor )
-    skeleton += "\n\\date(%s)" % ( date.today().strftime("%B %d, %Y") )
+    #Title, Date
+    skeleton += "\n\\title{%s}" % ( heading )
+    skeleton += "\n\\date{%s}" % ( date.today().strftime("%B %d, %Y") )
+    skeleton += "\n\\author{}"
+    
+    #Constraints, title etc.
     skeleton += "\n\\begin{document}"
     skeleton += "\n\\maketitle"
-    skeleton += "\n\\section*{Constriants}"
-    skeleton += "\n\\subsection*{Time Limit}"
+
+
+    skeleton += "\n\\section*{%s}" % ( problem.problemName )
+    skeleton += "\n\\subsection*{Constriants}"
+    skeleton += "\n\\textbf{Time Limit}"
     skeleton += "\n%d seconds" % ( problem.timeLimit )
-    skeleton += "\n\\subsection{Memory Limit}"
+    skeleton += "\n\\hfill"
+    skeleton += "\n\\textbf{Memory Limit}"
     skeleton += "\n%d MB" % ( problem.memoryLimit )
+    #Constraints and Headers are done uptil now.
+
+    #Adding the problem statement
+    skeleton += "\n\\subsubsection*{Problem Statement}"
+    skeleton += "\n\\paragraph{}"
+    skeleton += purifySyntax(problem.problemStatement).replace("\\\ ","\n\n").strip()
     
-    print( skeleton )
+    #Adding the I/O Descriptions if they exist
+    if problem.inputDescription != "" :
+        skeleton += "\n\\paragraph{}"
+        skeleton += "\n\\subsubsection*{Input Description}"
+        skeleton += purifySyntax( problem.inputDescription ).replace("\\\ ","\n\n").strip()
+    if problem.outputDescription != "" :
+        skeleton += "\n\\paragraph{}"
+        skeleton += "\n\\subsubsection*{Output Description : }"
+        skeleton += purifySyntax( problem.outputDescription ).replace("\\\ ","\n\n").strip()
+    
+    #Adding Example Inputs/Outputs
+    skeleton += "\n\\subsection*{Examples}"
+    for i in range ( len( problem.inputData ) ) :
+        skeleton += "\n\\fbox{\\parbox{\\textwidth}{%"
+        skeleton += "\n\\subsubsection*{Input}"
+        skeleton += purifySyntax( problem.inputData[i] )
+        skeleton += "\n\\subsubsection*{Output}"
+        skeleton += purifySyntax( problem.outputData[i] )
+        skeleton += "\n}}"
+    #Adding a note if it exists
+    if problem.note != "" :
+        skeleton += "\subsubsection*{Note}"
+        skeleton += purifySyntax( problem.note )
 
-def makePDF( problemLink ):
-    problem = P.parser( problemLink )       #The Problem object is stored in the variable problem.
-    createTex( problem )
+    skeleton += "\n\\end{document}"
+    
+    return skeleton
 
-problemLink = "https://codeforces.com/problemset/problem/1773/A"
+def makePDF( problemLink, fileName, contest = 0 ):
+    problem = P.parser( problemLink ) #The Problem object is stored in the variable problem.
+    #Creating the data that is to be written in the .tex file.
+    texFile = createTex( problem, "" )
+    
+    if contest :
+        return skeleton
+    else :
+        createFile( texFile, fileName )
+    
+
+def createContestPDF( problemlinks, contestName ):
+    global skeleton
+
+    for link in problemlinks :
+        makePDF( link, contestName, 1 )
+    
+    return createFile( skeleton )
+    
+problemLink = "https://codeforces.com/problemset/problem/1783/F"
+
+makePDF( problemLink, "Sample" )
