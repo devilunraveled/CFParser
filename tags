@@ -15,6 +15,8 @@ Basic Features :	README.md	/^## Basic Features :$/;"	s	chapter:CFParser
 Black	src/output/colors.py	/^    Black = Base + "000" + End$/;"	v	class:Color
 Blue	src/output/colors.py	/^    Blue = Base + "004" + End$/;"	v	class:Color
 CFParser	README.md	/^# CFParser$/;"	c
+CFParser	main.py	/^def CFParser() :$/;"	f
+CodeForces	main.py	/^CodeForces = "https:\/\/codeforces.com\/"$/;"	v
 Color	src/output/colors.py	/^class Color :$/;"	c
 Cyan	src/output/colors.py	/^    Cyan = Base + "086" + End$/;"	v	class:Color
 E	src/userdata.py	/^from errors import requestErrors as E$/;"	x	nameref:unknown:requestErrors
@@ -26,7 +28,9 @@ Next Feature In Development :	README.md	/^### Next Feature In Development :$/;"	
 Orange	src/output/colors.py	/^    Orange = Base + "209" + End$/;"	v	class:Color
 P	src/output/pdfMaker.py	/^import siteparser as P$/;"	I	nameref:module:siteparser
 P	tests/tester.py	/^import pdfMaker as P$/;"	I	nameref:module:pdfMaker
+Pm	main.py	/^import pdfMaker as Pm$/;"	I	nameref:module:pdfMaker
 Problem	src/parser/siteparser.py	/^class Problem :$/;"	c
+ProblemSet	main.py	/^ProblemSet = "problemset\/problem\/"$/;"	v
 R	src/requesthandler.py	/^import requests as R$/;"	I	nameref:module:requests
 Red	src/output/colors.py	/^    Red = Base + "001" + End$/;"	v	class:Color
 Reset	src/output/colors.py	/^    Reset = "\\033[0m"$/;"	v	class:Color
@@ -52,6 +56,7 @@ inputTitleTag	src/parser/siteparser.py	/^inputTitleTag = []$/;"	v
 link	src/parser/siteparser.py	/^link = "https:\/\/codeforces.com\/problemset\/problem\/1773\/I"$/;"	v
 link	tests/tester.py	/^link = "https:\/\/codeforces.com\/problemset\/problem\/%s\/%s"$/;"	v
 makePDF	src/output/pdfMaker.py	/^def makePDF( problemLink, fileName, contest = 0 ):$/;"	f
+makingPDF	main.py	/^def makingPDF( ):$/;"	f
 memoryDesc	src/parser/siteparser.py	/^    memoryDesc = ''$/;"	v	class:Problem
 memoryLimit	src/parser/siteparser.py	/^    memoryLimit = 0$/;"	v	class:Problem
 normalTest	tests/tester.py	/^def normalTest():$/;"	f
@@ -70,3 +75,4 @@ timeDesc	src/parser/siteparser.py	/^    timeDesc = ''$/;"	v	class:Problem
 timeLimit	src/parser/siteparser.py	/^    timeLimit = 0$/;"	v	class:Problem
 urlreq	src/parser/siteparser.py	/^import urllib.request as urlreq$/;"	I	nameref:module:urllib.request
 username	src/userdata.py	/^    username = input("Enter The username : ")$/;"	v
+welcomeMessage	main.py	/^welcomeMessage = "Hello, thanks for using CFParser"$/;"	v
