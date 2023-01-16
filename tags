@@ -18,19 +18,32 @@ CFParser	README.md	/^# CFParser$/;"	c
 CFParser	main.py	/^def CFParser() :$/;"	f
 CodeForces	main.py	/^CodeForces = "https:\/\/codeforces.com\/"$/;"	v
 Color	src/output/colors.py	/^class Color :$/;"	c
+Constriants	Sample.tex	/^\\subsection*{Constriants}$/;"	u	section:D. Binary Spiders
+Contest	main.py	/^Contest = "contest\/"$/;"	v
 Cyan	src/output/colors.py	/^    Cyan = Base + "086" + End$/;"	v	class:Color
+D. Binary Spiders	Sample.tex	/^\\section*{D. Binary Spiders}$/;"	s
 E	src/userdata.py	/^from errors import requestErrors as E$/;"	x	nameref:unknown:requestErrors
 End	src/output/colors.py	/^    End = "m"$/;"	v	class:Color
 Errenous	src/errors/requestErrors.py	/^def Errenous( string ):$/;"	f
+Examples	Sample.tex	/^\\subsection*{Examples}$/;"	u	section:D. Binary Spiders
 Green	src/output/colors.py	/^    Green = Base + "002" + End$/;"	v	class:Color
 HANDLE	src/requesthandler.py	/^HANDLE = "?handles="$/;"	v
+Input	Sample.tex	/^\\subsubsection*{Input}6 1024\\\\ 1 2 3 1 4 0$/;"	b	subsection:D. Binary Spiders""Examples
+Input	Sample.tex	/^\\subsubsection*{Input}6 8\\\\ 2 8 4 16 10 14$/;"	b	subsection:D. Binary Spiders""Examples
+Input Description	Sample.tex	/^\\subsubsection*{Input Description}The first line contains two integers $n$ and $k$ ($2 \\le n \\/;"	b	subsection:D. Binary Spiders""Constriants
 Next Feature In Development :	README.md	/^### Next Feature In Development :$/;"	S	section:CFParser""Basic Features :
+Note	Sample.tex	/^}}\\subsubsection*{Note}Consider the examples above.\\\\ In the first example, the group of spid/;"	b	subsection:D. Binary Spiders""Examples
 Orange	src/output/colors.py	/^    Orange = Base + "209" + End$/;"	v	class:Color
+Output	Sample.tex	/^\\subsubsection*{Output}-1$/;"	b	subsection:D. Binary Spiders""Examples
+Output	Sample.tex	/^\\subsubsection*{Output}3\\\\ 1 5 4$/;"	b	subsection:D. Binary Spiders""Examples
+Output Description :	Sample.tex	/^\\subsubsection*{Output Description : }In the first line, print a single integer $\\ell$ ($2 \\l/;"	b	subsection:D. Binary Spiders""Constriants
 P	src/output/pdfMaker.py	/^import siteparser as P$/;"	I	nameref:module:siteparser
 P	tests/tester.py	/^import pdfMaker as P$/;"	I	nameref:module:pdfMaker
 Pm	main.py	/^import pdfMaker as Pm$/;"	I	nameref:module:pdfMaker
+Problem	main.py	/^Problem = "problem\/"$/;"	v
 Problem	src/parser/siteparser.py	/^class Problem :$/;"	c
-ProblemSet	main.py	/^ProblemSet = "problemset\/problem\/"$/;"	v
+Problem Statement	Sample.tex	/^\\subsubsection*{Problem Statement}$/;"	b	subsection:D. Binary Spiders""Constriants
+ProblemSet	main.py	/^ProblemSet = "problemset\/"$/;"	v
 R	src/requesthandler.py	/^import requests as R$/;"	I	nameref:module:requests
 Red	src/output/colors.py	/^    Red = Base + "001" + End$/;"	v	class:Color
 Reset	src/output/colors.py	/^    Reset = "\\033[0m"$/;"	v	class:Color
@@ -42,6 +55,7 @@ createFile	src/output/pdfMaker.py	/^def createFile( texFile, fileName ):$/;"	f
 createRequest	src/requesthandler.py	/^def createRequest( method, arguments ):$/;"	f
 createTex	src/output/pdfMaker.py	/^def createTex( problem, heading ) :$/;"	f
 displayClosingMessage	main.py	/^def displayClosingMessage() :$/;"	f
+displayRandomMessage	main.py	/^def displayRandomMessage() :$/;"	f
 displayUserData	src/userdata.py	/^def displayUserData( data ):$/;"	f
 extractIODescription	src/parser/siteparser.py	/^def extractIODescription( problemHTML, problem ):$/;"	f
 extractProblemConstraints	src/parser/siteparser.py	/^def extractProblemConstraints( problemHTML, problem ):$/;"	f
