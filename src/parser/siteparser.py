@@ -50,7 +50,8 @@ class Problem :
         self.outputData = []
         self.note = ''
 
-link = "https://codeforces.com/problemset/problem/1773/I"
+
+
 
 def extractProblemTitle( problemHTML, problem, inputTitleTag, outputTitleTag ):
     found = 0
@@ -106,6 +107,9 @@ def extractProblemStatement( problemHTML, problem ):
             problemHTML = problemHTML.next_element
         
     ufProblem = str( problemHTML.next_sibling.next_element )
+
+    ufProblem = aLilBetter( ufProblem )
+    
     insideTag = False
     string = ""
 
@@ -125,8 +129,17 @@ def extractProblemStatement( problemHTML, problem ):
     
     return problem
 
-def extractIODescription( problemHTML, problem ):
 
+def aLilBetter( s ) :
+    horribleProgrammingPractice = ['<span class="mn" id="MathJax-Span-97" style="font-size: 70.7%; font-family: MathJax_Main;">4</span>', '<span class="mi" id="MathJax-Span-142" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">']
+    somewhatTolearablePractice = ['<span class="mn" id="MathJax-Span-97" style="font-size: 70.7%; font-family: MathJax_Main;">^','<span class="mi" id="MathJax-Span-142" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">_']
+    for i in range ( 0, len(horribleProgrammingPractice) ) :
+        crap = horribleProgrammingPractice[i]
+        kindacrap = somewhatTolearablePractice[i]
+        s.replace(crap,kindacrap)
+    return s
+
+def extractIODescription( problemHTML, problem ):
     counter = 0
 
     for child in problemHTML.descendants :
@@ -147,6 +160,8 @@ def extractIODescription( problemHTML, problem ):
 
     inputInfo = ""
     inputDesc = str(inputDescTag.parent)
+   
+    inputDesc = aLilBetter( inputDesc )
 
     insideTag = False
     started = False
@@ -167,6 +182,8 @@ def extractIODescription( problemHTML, problem ):
     outputInfo = ""
     outputDesc = str( outputDescTag.parent )
 
+    outputDesc = aLilBetter( outputDesc )
+    
     insideTag = False
     started = False
 
@@ -190,6 +207,8 @@ def extractIODescription( problemHTML, problem ):
         noteInfo = ""
         noteDesc = str( noteTag.parent )
 
+        noteDesc = aLilBetter( noteDesc )
+        
         insideTag = False
         started = False
 
