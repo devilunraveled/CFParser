@@ -115,7 +115,7 @@ def makePDF( problemLink, fileName, contest = 0):
     problem = P.parser( problemLink ) #The Problem object is stored in the variable problem.
     #Creating the data that is to be written in the .tex file.
     # print( problem )
-    texFile = createTex( problem, "" )
+    texFile = createTex( problem, "", 1 )
     
     # print( problem )
     if contest :
@@ -133,7 +133,7 @@ def createContestPDF( problemlinks, contestName ):
     for link in problemlinks :
         contestskeleton += makePDF( link, contestName, 1 )
     
-    return createFile( contestskeleton )
+    return createFile( contestskeleton, contestName )
     
 # problemLink = "https://codeforces.com/problemset/problem/1703/C"
 
