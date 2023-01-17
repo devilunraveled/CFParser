@@ -9,8 +9,6 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20220828.0/
-B. New Year Cards	f.tex	/^\\section*{B. New Year Cards}$/;"	s
-B. New Year Cards	g.tex	/^\\section*{B. New Year Cards}$/;"	s
 BASEURL	src/requesthandler.py	/^BASEURL = "https:\/\/codeforces.com\/api\/"$/;"	v
 Base	src/output/colors.py	/^    Base = "\\033[38;5;"$/;"	v	class:Color
 Basic Features :	README.md	/^## Basic Features :$/;"	s	chapter:CFParser
@@ -20,34 +18,18 @@ CFParser	README.md	/^# CFParser$/;"	c
 CFParser	main.py	/^def CFParser() :$/;"	f
 CodeForces	main.py	/^CodeForces = "https:\/\/codeforces.com\/"$/;"	v
 Color	src/output/colors.py	/^class Color :$/;"	c
-Constriants	f.tex	/^\\subsection*{Constriants}$/;"	u	section:B. New Year Cards
-Constriants	g.tex	/^\\subsection*{Constriants}$/;"	u	section:B. New Year Cards
 Cyan	src/output/colors.py	/^    Cyan = Base + "086" + End$/;"	v	class:Color
 E	src/userdata.py	/^from errors import requestErrors as E$/;"	x	nameref:unknown:requestErrors
 End	src/output/colors.py	/^    End = "m"$/;"	v	class:Color
 Errenous	src/errors/requestErrors.py	/^def Errenous( string ):$/;"	f
-Examples	f.tex	/^\\subsection*{Examples}\\fbox{\\parbox{\\textwidth}{%$/;"	u	section:B. New Year Cards
-Examples	g.tex	/^\\subsection*{Examples}\\fbox{\\parbox{\\textwidth}{%$/;"	u	section:B. New Year Cards
 Green	src/output/colors.py	/^    Green = Base + "002" + End$/;"	v	class:Color
 HANDLE	src/requesthandler.py	/^HANDLE = "?handles="$/;"	v
-Input	f.tex	/^\\subsubsection*{Input}41 2 3 4\\\\ 4 1 3 24 3 1 2\\\\ 3 4 2 13 1 2 4$/;"	b	subsection:B. New Year Cards""Examples
-Input	g.tex	/^\\subsubsection*{Input}41 2 3 4\\\\ 4 1 3 24 3 1 2\\\\ 3 4 2 13 1 2 4$/;"	b	subsection:B. New Year Cards""Examples
-Input Description	f.tex	/^\\subsubsection*{Input Description}The first line contains an integer n (2 \\leq n \\leq 300) —/;"	b	subsection:B. New Year Cards""Constriants
-Input Description	g.tex	/^\\subsubsection*{Input Description}The first line contains an integer n (2 ≤ n ≤ 300) — th/;"	b	subsection:B. New Year Cards""Constriants
 Next Feature In Development :	README.md	/^### Next Feature In Development :$/;"	S	section:CFParser""Basic Features :
-Note	f.tex	/^}}\\subsubsection*{Note}In the sample, the algorithm of actions Alexander and his friends perfor/;"	b	subsection:B. New Year Cards""Examples
-Note	g.tex	/^}}\\subsubsection*{Note}In the sample, the algorithm of actions Alexander and his friends perfor/;"	b	subsection:B. New Year Cards""Examples
 Orange	src/output/colors.py	/^    Orange = Base + "209" + End$/;"	v	class:Color
-Output	f.tex	/^\\subsubsection*{Output}2 1 1 4$/;"	b	subsection:B. New Year Cards""Examples
-Output	g.tex	/^\\subsubsection*{Output}2 1 1 4$/;"	b	subsection:B. New Year Cards""Examples
-Output Description :	f.tex	/^\\subsubsection*{Output Description : }Print n space-separated numbers: the i-th number should b/;"	b	subsection:B. New Year Cards""Constriants
-Output Description :	g.tex	/^\\subsubsection*{Output Description : }Print n space-separated numbers: the i-th number should b/;"	b	subsection:B. New Year Cards""Constriants
 P	src/output/pdfMaker.py	/^import siteparser as P$/;"	I	nameref:module:siteparser
 P	tests/tester.py	/^import pdfMaker as P$/;"	I	nameref:module:pdfMaker
 Pm	main.py	/^import pdfMaker as Pm$/;"	I	nameref:module:pdfMaker
 Problem	src/parser/siteparser.py	/^class Problem :$/;"	c
-Problem Statement	f.tex	/^\\subsubsection*{Problem Statement}$/;"	b	subsection:B. New Year Cards""Constriants
-Problem Statement	g.tex	/^\\subsubsection*{Problem Statement}$/;"	b	subsection:B. New Year Cards""Constriants
 ProblemSet	main.py	/^ProblemSet = "problemset\/problem\/"$/;"	v
 R	src/requesthandler.py	/^import requests as R$/;"	I	nameref:module:requests
 Red	src/output/colors.py	/^    Red = Base + "001" + End$/;"	v	class:Color
