@@ -19,6 +19,7 @@ CFParser	main.py	/^def CFParser() :$/;"	f
 CodeForces	main.py	/^CodeForces = "https:\/\/codeforces.com\/"$/;"	v
 Color	src/output/colors.py	/^class Color :$/;"	c
 Contest	main.py	/^Contest = "contest\/"$/;"	v
+Cp	main.py	/^import contestParser as Cp$/;"	I	nameref:module:contestParser
 Cyan	src/output/colors.py	/^    Cyan = Base + "086" + End$/;"	v	class:Color
 E	src/userdata.py	/^from errors import requestErrors as E$/;"	x	nameref:unknown:requestErrors
 End	src/output/colors.py	/^    End = "m"$/;"	v	class:Color
@@ -58,15 +59,15 @@ getAllData	src/userdata.py	/^def getAllData( username ):$/;"	f
 inputData	src/parser/siteparser.py	/^    inputData = []$/;"	v	class:Problem
 inputDescription	src/parser/siteparser.py	/^    inputDescription = ''$/;"	v	class:Problem
 inputTitleTag	src/parser/siteparser.py	/^inputTitleTag = []$/;"	v
-link	src/parser/contestParser.py	/^link = "https:\/\/codeforces.com\/contest\/177"$/;"	v
 link	src/parser/siteparser.py	/^link = "https:\/\/codeforces.com\/problemset\/problem\/1773\/I"$/;"	v
 link	tests/tester.py	/^link = "https:\/\/codeforces.com\/problemset\/problem\/%s\/%s"$/;"	v
+liveContestProblemsPDF	main.py	/^def liveContestProblemsPDF() :$/;"	f
 makePDF	src/output/pdfMaker.py	/^def makePDF( problemLink, fileName, contest = 0):$/;"	f
-makingPDF	main.py	/^def makingPDF( ):$/;"	f
 memoryDesc	src/parser/siteparser.py	/^    memoryDesc = ''$/;"	v	class:Problem
 memoryLimit	src/parser/siteparser.py	/^    memoryLimit = 0$/;"	v	class:Problem
 normalTest	tests/tester.py	/^def normalTest():$/;"	f
 note	src/parser/siteparser.py	/^    note = ''$/;"	v	class:Problem
+oldContestProblemsPDF	main.py	/^def oldContestProblemsPDF() :$/;"	f
 options	main.py	/^def options():$/;"	f
 outputData	src/parser/siteparser.py	/^    outputData = []$/;"	v	class:Problem
 outputDescription	src/parser/siteparser.py	/^    outputDescription = ''$/;"	v	class:Problem
@@ -77,6 +78,7 @@ problemStatement	src/parser/siteparser.py	/^    problemStatement = ''$/;"	v	clas
 processRequest	src/requesthandler.py	/^def processRequest( requesturl ):$/;"	f
 purifySyntax	src/output/pdfMaker.py	/^def purifySyntax( string ):$/;"	f
 resetSkeleton	src/output/pdfMaker.py	/^def resetSkeleton( heading ):$/;"	f
+singleProblemPDF	main.py	/^def singleProblemPDF( ):$/;"	f
 skeleton	src/output/pdfMaker.py	/^skeleton = ""$/;"	v
 timeDesc	src/parser/siteparser.py	/^    timeDesc = ''$/;"	v	class:Problem
 timeLimit	src/parser/siteparser.py	/^    timeLimit = 0$/;"	v	class:Problem

@@ -1,7 +1,7 @@
 import urllib.request as urlreq
 from bs4 import BeautifulSoup
 
-link = "https://codeforces.com/contest/177"
+# link = "https://codeforces.com/contest/177"
 
 def contestPageParser( link ) :
     fp = urlreq.urlopen(link)
@@ -23,5 +23,3 @@ def contestPageParser( link ) :
                     continue
 
     return problemcodes
-
-print(contestPageParser( link ))

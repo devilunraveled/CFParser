@@ -4,6 +4,7 @@ sys.path.insert(0, './src/output/')
 sys.path.insert(0, './src/parser/')
 
 import pdfMaker as Pm
+import contestParser as Cp
 
 welcomeMessage = "Hello, thanks for using CFParser"
 
@@ -12,7 +13,7 @@ ProblemSet = "problemset/"
 Problem = "problem/"
 Contest = "contest/"
 
-def makingPDF( ):
+def singleProblemPDF( ):
     problemCode = input("Enter The Problem Code ( e.g. 1705A, 1696B ) : ") 
     
     problemLink = ""
@@ -31,10 +32,48 @@ def makingPDF( ):
 
     Pm.makePDF(problemLink, fileName)
 
+def liveContestProblemsPDF() :
+    contestCode = int(input("Enter The Contest Number ( e.g. 178, 1695)" ))
+    if contestCode < 1 :
+        print("Invalid Contest Number")
+    else :
+        try :
+            problemLinks = []
+            contestLink = CodeForces + Contest + str(contestCode)
+            problemCodes = Cp.contestPageParser( contestLink )
+
+            for code in problemCodes :
+                problemLinks.append(CodeForces + Contest + Problem + code)
+                print(problemLinks[-1])
+            # contestName = "Contest " + str(contestCode)
+            # Pm.createContestPDF( problemLinks, contestName)
+        except Exception as e:
+            print(e)
+
+            
+def oldContestProblemsPDF() :
+    contestCode = int(input("Enter The Contest Number ( e.g. 178, 1695)" ))
+    if contestCode < 1 :
+        print("Invalid Contest Number")
+    else :
+        try :
+            problemLinks = []
+            contestLink = CodeForces + Contest + str(contestCode)
+            problemCodes = Cp.contestPageParser( contestLink )
+
+            for code in problemCodes :
+                problemLinks.append(CodeForces + ProblemSet + Problem + str(contestCode) +  "/" + code)
+                print(problemLinks[-1])
+            contestName = "Contest " + str(contestCode)
+            Pm.createContestPDF( problemLinks, contestName)
+        except Exception as e:
+            print(e)
+
 
 def options():
     print("Enter 1 to Solve A problem of your choice")
-    print("Enter 2 to Get A Contests's Problems")
+    print("Enter 2 to Get A Running Contests' Problems")
+    print("Enter 3 to Get an old Contests' Problems")
     print("Enter 0 to exit")
 
 
@@ -46,7 +85,7 @@ def displayRandomMessage() :
 
 def CFParser() :
     print( welcomeMessage )
-    functionList = [ makingPDF ]
+    functionList = [ singleProblemPDF, liveContestProblemsPDF, oldContestProblemsPDF ]
     while True :
         options() #Give the available functions to the user.
         
