@@ -9,30 +9,54 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20220828.0/
+A. Theatre Square	Contest 1.tex	/^\\section*{A. Theatre Square}$/;"	s
+B. Spreadsheets	Contest 1.tex	/^\\section*{B. Spreadsheets}$/;"	s
 BASEURL	src/requesthandler.py	/^BASEURL = "https:\/\/codeforces.com\/api\/"$/;"	v
 Base	src/output/colors.py	/^    Base = "\\033[38;5;"$/;"	v	class:Color
 Basic Features :	README.md	/^## Basic Features :$/;"	s	chapter:CFParser
 Black	src/output/colors.py	/^    Black = Base + "000" + End$/;"	v	class:Color
 Blue	src/output/colors.py	/^    Blue = Base + "004" + End$/;"	v	class:Color
+C. Ancient Berland Circus	Contest 1.tex	/^\\section*{C. Ancient Berland Circus}$/;"	s
 CFParser	README.md	/^# CFParser$/;"	c
 CFParser	main.py	/^def CFParser() :$/;"	f
 CodeForces	main.py	/^CodeForces = "https:\/\/codeforces.com\/"$/;"	v
 Color	src/output/colors.py	/^class Color :$/;"	c
+Constriants	Contest 1.tex	/^\\subsection*{Constriants}$/;"	u	section:A. Theatre Square
+Constriants	Contest 1.tex	/^\\subsection*{Constriants}$/;"	u	section:B. Spreadsheets
+Constriants	Contest 1.tex	/^\\subsection*{Constriants}$/;"	u	section:C. Ancient Berland Circus
 Contest	main.py	/^Contest = "contest\/"$/;"	v
 Cp	main.py	/^import contestParser as Cp$/;"	I	nameref:module:contestParser
 Cyan	src/output/colors.py	/^    Cyan = Base + "086" + End$/;"	v	class:Color
 E	src/userdata.py	/^from errors import requestErrors as E$/;"	x	nameref:unknown:requestErrors
 End	src/output/colors.py	/^    End = "m"$/;"	v	class:Color
 Errenous	src/errors/requestErrors.py	/^def Errenous( string ):$/;"	f
+Examples	Contest 1.tex	/^\\subsection*{Examples}$/;"	u	section:A. Theatre Square
+Examples	Contest 1.tex	/^\\subsection*{Examples}$/;"	u	section:B. Spreadsheets
+Examples	Contest 1.tex	/^\\subsection*{Examples}$/;"	u	section:C. Ancient Berland Circus
 Green	src/output/colors.py	/^    Green = Base + "002" + End$/;"	v	class:Color
 HANDLE	src/requesthandler.py	/^HANDLE = "?handles="$/;"	v
+Input	Contest 1.tex	/^\\subsubsection*{Input}0.000000 0.0000001.000000 1.000000\\\\ 0.000000 1.000000$/;"	b	subsection:C. Ancient Berland Circus""Examples
+Input	Contest 1.tex	/^\\subsubsection*{Input}2R23C55\\\\ BC23$/;"	b	subsection:B. Spreadsheets""Examples
+Input	Contest 1.tex	/^\\subsubsection*{Input}6 6 4$/;"	b	subsection:A. Theatre Square""Examples
+Input Description	Contest 1.tex	/^\\subsubsection*{Input Description}The first line of the input contains integer number n (1 $\\l/;"	b	subsection:B. Spreadsheets""Constriants
+Input Description	Contest 1.tex	/^\\subsubsection*{Input Description}The input contains three positive integer numbers in the firs/;"	b	subsection:A. Theatre Square""Constriants
+Input Description	Contest 1.tex	/^\\subsubsection*{Input Description}The input file consists of three lines, each of them contains/;"	b	subsection:C. Ancient Berland Circus""Constriants
 Next Feature In Development :	README.md	/^### Next Feature In Development :$/;"	S	section:CFParser""Basic Features :
 Orange	src/output/colors.py	/^    Orange = Base + "209" + End$/;"	v	class:Color
+Output	Contest 1.tex	/^\\subsubsection*{Output}1.00000000$/;"	b	subsection:C. Ancient Berland Circus""Examples
+Output	Contest 1.tex	/^\\subsubsection*{Output}4$/;"	b	subsection:A. Theatre Square""Examples
+Output	Contest 1.tex	/^\\subsubsection*{Output}BC23R23C55$/;"	b	subsection:B. Spreadsheets""Examples
+Output Description :	Contest 1.tex	/^\\subsubsection*{Output Description : }Output the smallest possible area of the ancient arena. T/;"	b	subsection:C. Ancient Berland Circus""Constriants
+Output Description :	Contest 1.tex	/^\\subsubsection*{Output Description : }Write n lines, each line should contain a cell coordinate/;"	b	subsection:B. Spreadsheets""Constriants
+Output Description :	Contest 1.tex	/^\\subsubsection*{Output Description : }Write the needed number of flagstones.$/;"	b	subsection:A. Theatre Square""Constriants
 P	src/output/pdfMaker.py	/^import siteparser as P$/;"	I	nameref:module:siteparser
 P	tests/tester.py	/^import pdfMaker as P$/;"	I	nameref:module:pdfMaker
 Pm	main.py	/^import pdfMaker as Pm$/;"	I	nameref:module:pdfMaker
 Problem	main.py	/^Problem = "problem\/"$/;"	v
 Problem	src/parser/siteparser.py	/^class Problem :$/;"	c
+Problem Statement	Contest 1.tex	/^\\subsubsection*{Problem Statement}$/;"	b	subsection:A. Theatre Square""Constriants
+Problem Statement	Contest 1.tex	/^\\subsubsection*{Problem Statement}$/;"	b	subsection:B. Spreadsheets""Constriants
+Problem Statement	Contest 1.tex	/^\\subsubsection*{Problem Statement}$/;"	b	subsection:C. Ancient Berland Circus""Constriants
 ProblemSet	main.py	/^ProblemSet = "problemset\/"$/;"	v
 R	src/requesthandler.py	/^import requests as R$/;"	I	nameref:module:requests
 Red	src/output/colors.py	/^    Red = Base + "001" + End$/;"	v	class:Color
@@ -62,7 +86,7 @@ inputTitleTag	src/parser/siteparser.py	/^inputTitleTag = []$/;"	v
 link	src/parser/siteparser.py	/^link = "https:\/\/codeforces.com\/problemset\/problem\/1773\/I"$/;"	v
 link	tests/tester.py	/^link = "https:\/\/codeforces.com\/problemset\/problem\/%s\/%s"$/;"	v
 liveContestProblemsPDF	main.py	/^def liveContestProblemsPDF() :$/;"	f
-makePDF	src/output/pdfMaker.py	/^def makePDF( problemLink, fileName, contest = 0):$/;"	f
+makePDF	src/output/pdfMaker.py	/^def makePDF( problemLink, fileName, contest):$/;"	f
 memoryDesc	src/parser/siteparser.py	/^    memoryDesc = ''$/;"	v	class:Problem
 memoryLimit	src/parser/siteparser.py	/^    memoryLimit = 0$/;"	v	class:Problem
 normalTest	tests/tester.py	/^def normalTest():$/;"	f
