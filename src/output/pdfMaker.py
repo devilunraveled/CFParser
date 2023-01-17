@@ -14,9 +14,9 @@ def resetSkeleton( heading ):
 
     if heading == '' :
         heading = "CodeForces Problem"
-
-    packages = ["inputenc", "fontenc", "xcolor", "amsmath"]
-    encoding = [ "", "T1", "", ""]
+    #\usepackage[a4paper, total={6in, 8in}]{geometry}
+    packages = ["inputenc", "fontenc", "xcolor", "amsmath", "geometry"]
+    encoding = [ "", "T1", "", "", "a4paper, total={6in, 10in}"]
     # Adding the necessary packages.
     skeleton += "\documentclass{article}"
     for i in range (0,len(packages)) :
@@ -33,6 +33,14 @@ def resetSkeleton( heading ):
     #Constraints, title etc.
     skeleton += "\n\\begin{document}"
     skeleton += "\n\\maketitle"
+    
+    #Custom Commands
+    newCommands = ["\\lt", "\\gt" ]
+    actualCommands = ["\\ensuremath <", "\\ensuremath >"]
+    for i in range (0,len(newCommands)):
+        skeleton += "\n\\newcommand{%s}{%s}" % ( newCommands[i], actualCommands[i] )
+   
+    return
 
 def purifySyntax( string ):
     htmlSyntax = ["$$$", "&lt", "&gt", "&amp", "&quot", "&apos", "&cent", "&pound", "&yen", "&euro", "&copy", "&reg", "\n", " ", "\\xrightarrow", "\\xleftarrow", "≤", "≥" ]
@@ -100,12 +108,12 @@ def createTex( problem, heading, mode = 1 ) :
     skeleton += "\n\\subsection*{Examples}"
     for i in range ( len( problem.inputData ) ) :
         skeleton += "\n"
-        skeleton += "\\fbox{\\parbox{\\textwidth}{%"
-        skeleton += "\n\\subsubsection*{Input}"
+        skeleton += "\\fbox{\\parbox{\\dimexpr\\linewidth-2\\fboxsep-2\\fboxrule}{%"
+        skeleton += "\n\\textbf{Input}\n\n"
         skeleton += purifySyntax( problem.inputData[i] )
-        skeleton += "\n\\subsubsection*{Output}"
+        skeleton += "\n\n\\textbf{Output}\n\n"
         skeleton += purifySyntax( problem.outputData[i] )
-        skeleton += "\n}}"
+        skeleton += "}}"
     #Adding a note if it exists
     if problem.note != "" :
         skeleton += "\subsubsection*{Note}"
