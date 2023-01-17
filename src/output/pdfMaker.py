@@ -5,7 +5,6 @@ import os
 import siteparser as P
 import subprocess
 from datetime import date
-
 skeleton = ""
 
 def resetSkeleton( heading ):
@@ -61,11 +60,12 @@ def createFile( texFile, fileName ):
     except :
         return 1
 
-def createTex( problem, heading ) :
+def createTex( problem, heading, mode ) :
     global skeleton
     
-    resetSkeleton( heading )
-
+    if mode == 0 :
+        resetSkeleton( heading )
+    
     skeleton += "\n\\section*{%s}" % ( problem.problemName )
     skeleton += "\n\\subsection*{Constriants}"
     skeleton += "\n\\textbf{Time Limit}"
@@ -110,7 +110,7 @@ def createTex( problem, heading ) :
     # print(skeleton)
     return skeleton
 
-def makePDF( problemLink, fileName, contest = 0 ):
+def makePDF( problemLink, fileName, contest = 0):
     problem = P.Problem()
     problem = P.parser( problemLink ) #The Problem object is stored in the variable problem.
     #Creating the data that is to be written in the .tex file.
@@ -119,18 +119,21 @@ def makePDF( problemLink, fileName, contest = 0 ):
     
     # print( problem )
     if contest :
-        return skeleton
+        return skeleton 
     else :
         createFile( texFile, fileName )
     
 
 def createContestPDF( problemlinks, contestName ):
     global skeleton
+    resetSkeleton( skeleton )
+
+    contestskeleton = ""
 
     for link in problemlinks :
-        makePDF( link, contestName, 1 )
+        contestskeleton += makePDF( link, contestName, 1 )
     
-    return createFile( skeleton )
+    return createFile( contestskeleton )
     
 # problemLink = "https://codeforces.com/problemset/problem/1703/C"
 

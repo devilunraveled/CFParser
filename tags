@@ -39,10 +39,11 @@ Reset	src/output/colors.py	/^    Reset = "\\033[0m"$/;"	v	class:Color
 Violet	src/output/colors.py	/^    Violet = Base + "201" + End$/;"	v	class:Color
 __init__	src/parser/siteparser.py	/^    def __init__(self):$/;"	m	class:Problem
 __str__	src/parser/siteparser.py	/^    def __str__(self):$/;"	m	class:Problem
+contestPageParser	src/parser/contestParser.py	/^def contestPageParser( link ) :$/;"	f
 createContestPDF	src/output/pdfMaker.py	/^def createContestPDF( problemlinks, contestName ):$/;"	f
 createFile	src/output/pdfMaker.py	/^def createFile( texFile, fileName ):$/;"	f
 createRequest	src/requesthandler.py	/^def createRequest( method, arguments ):$/;"	f
-createTex	src/output/pdfMaker.py	/^def createTex( problem, heading ) :$/;"	f
+createTex	src/output/pdfMaker.py	/^def createTex( problem, heading, mode ) :$/;"	f
 displayClosingMessage	main.py	/^def displayClosingMessage() :$/;"	f
 displayRandomMessage	main.py	/^def displayRandomMessage() :$/;"	f
 displayUserData	src/userdata.py	/^def displayUserData( data ):$/;"	f
@@ -57,9 +58,10 @@ getAllData	src/userdata.py	/^def getAllData( username ):$/;"	f
 inputData	src/parser/siteparser.py	/^    inputData = []$/;"	v	class:Problem
 inputDescription	src/parser/siteparser.py	/^    inputDescription = ''$/;"	v	class:Problem
 inputTitleTag	src/parser/siteparser.py	/^inputTitleTag = []$/;"	v
+link	src/parser/contestParser.py	/^link = "https:\/\/codeforces.com\/contest\/177"$/;"	v
 link	src/parser/siteparser.py	/^link = "https:\/\/codeforces.com\/problemset\/problem\/1773\/I"$/;"	v
 link	tests/tester.py	/^link = "https:\/\/codeforces.com\/problemset\/problem\/%s\/%s"$/;"	v
-makePDF	src/output/pdfMaker.py	/^def makePDF( problemLink, fileName, contest = 0 ):$/;"	f
+makePDF	src/output/pdfMaker.py	/^def makePDF( problemLink, fileName, contest = 0):$/;"	f
 makingPDF	main.py	/^def makingPDF( ):$/;"	f
 memoryDesc	src/parser/siteparser.py	/^    memoryDesc = ''$/;"	v	class:Problem
 memoryLimit	src/parser/siteparser.py	/^    memoryLimit = 0$/;"	v	class:Problem
@@ -78,6 +80,7 @@ resetSkeleton	src/output/pdfMaker.py	/^def resetSkeleton( heading ):$/;"	f
 skeleton	src/output/pdfMaker.py	/^skeleton = ""$/;"	v
 timeDesc	src/parser/siteparser.py	/^    timeDesc = ''$/;"	v	class:Problem
 timeLimit	src/parser/siteparser.py	/^    timeLimit = 0$/;"	v	class:Problem
+urlreq	src/parser/contestParser.py	/^import urllib.request as urlreq$/;"	I	nameref:module:urllib.request
 urlreq	src/parser/siteparser.py	/^import urllib.request as urlreq$/;"	I	nameref:module:urllib.request
 username	src/userdata.py	/^    username = input("Enter The username : ")$/;"	v
 welcomeMessage	main.py	/^welcomeMessage = "Hello, thanks for using CFParser"$/;"	v
