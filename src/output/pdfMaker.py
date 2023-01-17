@@ -15,11 +15,16 @@ def resetSkeleton( heading ):
     if heading == '' :
         heading = "CodeForces Problem"
 
-    packages = ["inputenc", "xcolor", "amsmath"]
+    packages = ["inputenc", "fontenc", "xcolor", "amsmath"]
+    encoding = [ "", "T1", "", ""]
     # Adding the necessary packages.
     skeleton += "\documentclass{article}"
-    for i in packages :
-        skeleton += "\n\\usepackage{%s}" % (i)
+    for i in range (0,len(packages)) :
+        pack = packages[i] 
+        if encoding[i] == "" :
+            skeleton += "\n\\usepackage{%s}" % (pack)
+        else :
+            skeleton += "\n\\usepackage[%s]{%s}" % (encoding[i], pack)
     #Title, Date
     skeleton += "\n\\title{%s}" % ( heading )
     skeleton += "\n\\date{%s}" % ( date.today().strftime("%B %d, %Y") )
@@ -60,7 +65,7 @@ def createFile( texFile, fileName ):
     except :
         return 1
 
-def createTex( problem, heading, mode ) :
+def createTex( problem, heading, mode = 1 ) :
     global skeleton
     
     if mode == 0 :
@@ -112,20 +117,15 @@ def createTex( problem, heading, mode ) :
     # print(skeleton)
     return skeleton
 
-def makePDF( problemLink, fileName, contest):
-    global skeleton
-
+def makePDF( problemLink, fileName, contest = 0):
     problem = P.Problem()
     problem = P.parser( problemLink ) #The Problem object is stored in the variable problem.
     #Creating the data that is to be written in the .tex file.
     # print( problem )
-    texFile = createTex( problem, "", 1 )
+    texFile = createTex( problem, "", contest )
     
-    # print( problem )
     if contest == 1 :
-        # print(skeleton)
-        # print("\n"*5)
-        return skeleton 
+        return 
     else :
         createFile( texFile, fileName )
     
@@ -133,7 +133,7 @@ def makePDF( problemLink, fileName, contest):
 def createContestPDF( problemlinks, contestName ):
     global skeleton
     resetSkeleton( '' )
-
+    #In this case, skeleton needs to be reset only once globally.
     try :
         for link in problemlinks :
             makePDF( link, contestName, 1 )

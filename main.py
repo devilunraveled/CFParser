@@ -44,7 +44,7 @@ def liveContestProblemsPDF() :
 
             for code in problemCodes :
                 problemLinks.append(CodeForces + Contest + Problem + code)
-                print(problemLinks[-1])
+                # print(problemLinks[-1])
             # contestName = "Contest " + str(contestCode)
             # Pm.createContestPDF( problemLinks, contestName)
         except Exception as e:

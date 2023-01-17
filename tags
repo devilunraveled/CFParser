@@ -68,7 +68,7 @@ contestPageParser	src/parser/contestParser.py	/^def contestPageParser( link ) :$
 createContestPDF	src/output/pdfMaker.py	/^def createContestPDF( problemlinks, contestName ):$/;"	f
 createFile	src/output/pdfMaker.py	/^def createFile( texFile, fileName ):$/;"	f
 createRequest	src/requesthandler.py	/^def createRequest( method, arguments ):$/;"	f
-createTex	src/output/pdfMaker.py	/^def createTex( problem, heading, mode ) :$/;"	f
+createTex	src/output/pdfMaker.py	/^def createTex( problem, heading, mode = 1 ) :$/;"	f
 displayClosingMessage	main.py	/^def displayClosingMessage() :$/;"	f
 displayRandomMessage	main.py	/^def displayRandomMessage() :$/;"	f
 displayUserData	src/userdata.py	/^def displayUserData( data ):$/;"	f
@@ -86,7 +86,7 @@ inputTitleTag	src/parser/siteparser.py	/^inputTitleTag = []$/;"	v
 link	src/parser/siteparser.py	/^link = "https:\/\/codeforces.com\/problemset\/problem\/1773\/I"$/;"	v
 link	tests/tester.py	/^link = "https:\/\/codeforces.com\/problemset\/problem\/%s\/%s"$/;"	v
 liveContestProblemsPDF	main.py	/^def liveContestProblemsPDF() :$/;"	f
-makePDF	src/output/pdfMaker.py	/^def makePDF( problemLink, fileName, contest):$/;"	f
+makePDF	src/output/pdfMaker.py	/^def makePDF( problemLink, fileName, contest = 0):$/;"	f
 memoryDesc	src/parser/siteparser.py	/^    memoryDesc = ''$/;"	v	class:Problem
 memoryLimit	src/parser/siteparser.py	/^    memoryLimit = 0$/;"	v	class:Problem
 normalTest	tests/tester.py	/^def normalTest():$/;"	f
