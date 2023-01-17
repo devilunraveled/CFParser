@@ -5,7 +5,6 @@ import os
 import siteparser as P
 import subprocess
 from datetime import date
-
 skeleton = ""
 
 def resetSkeleton( heading ):
@@ -16,11 +15,16 @@ def resetSkeleton( heading ):
     if heading == '' :
         heading = "CodeForces Problem"
 
-    packages = ["inputenc", "xcolor", "amsmath"]
+    packages = ["inputenc", "fontenc", "xcolor", "amsmath"]
+    encoding = [ "", "T1", "", ""]
     # Adding the necessary packages.
-    skeleton = "\documentclass{article}"
-    for i in packages :
-        skeleton += "\n\\usepackage{%s}" % (i)
+    skeleton += "\documentclass{article}"
+    for i in range (0,len(packages)) :
+        pack = packages[i] 
+        if encoding[i] == "" :
+            skeleton += "\n\\usepackage{%s}" % (pack)
+        else :
+            skeleton += "\n\\usepackage[%s]{%s}" % (encoding[i], pack)
     #Title, Date
     skeleton += "\n\\title{%s}" % ( heading )
     skeleton += "\n\\date{%s}" % ( date.today().strftime("%B %d, %Y") )
@@ -61,11 +65,13 @@ def createFile( texFile, fileName ):
     except :
         return 1
 
-def createTex( problem, heading ) :
+def createTex( problem, heading, mode = 1 ) :
     global skeleton
     
-    resetSkeleton( heading )
-
+    if mode == 0 :
+        print("????")
+        resetSkeleton( heading )
+    
     skeleton += "\n\\section*{%s}" % ( problem.problemName )
     skeleton += "\n\\subsection*{Constriants}"
     skeleton += "\n\\textbf{Time Limit}"
@@ -93,6 +99,7 @@ def createTex( problem, heading ) :
     #Adding Example Inputs/Outputs
     skeleton += "\n\\subsection*{Examples}"
     for i in range ( len( problem.inputData ) ) :
+        skeleton += "\n"
         skeleton += "\\fbox{\\parbox{\\textwidth}{%"
         skeleton += "\n\\subsubsection*{Input}"
         skeleton += purifySyntax( problem.inputData[i] )
@@ -103,34 +110,38 @@ def createTex( problem, heading ) :
     if problem.note != "" :
         skeleton += "\subsubsection*{Note}"
         skeleton += purifySyntax( problem.note )
-
-    skeleton += "\n\\end{document}"
+    
+    if mode == 0 :
+        skeleton += "\n\\end{document}"
     
     # print(skeleton)
     return skeleton
 
-def makePDF( problemLink, fileName, contest = 0 ):
+def makePDF( problemLink, fileName, contest = 0):
     problem = P.Problem()
     problem = P.parser( problemLink ) #The Problem object is stored in the variable problem.
     #Creating the data that is to be written in the .tex file.
     # print( problem )
-    texFile = createTex( problem, "" )
+    texFile = createTex( problem, "", contest )
     
-    # print( problem )
-    if contest :
-        return skeleton
+    if contest == 1 :
+        return 
     else :
         createFile( texFile, fileName )
     
 
 def createContestPDF( problemlinks, contestName ):
     global skeleton
-
-    for link in problemlinks :
-        makePDF( link, contestName, 1 )
-    
-    return createFile( skeleton )
-    
+    resetSkeleton( '' )
+    #In this case, skeleton needs to be reset only once globally.
+    try :
+        for link in problemlinks :
+            makePDF( link, contestName, 1 )
+            skeleton += "\n\\newpage" 
+        skeleton += "\n\\end{document}"
+        return createFile( skeleton, contestName )
+    except :
+        print(skeleton)
 # problemLink = "https://codeforces.com/problemset/problem/1703/C"
 
 # print( problem )
