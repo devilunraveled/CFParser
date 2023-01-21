@@ -148,8 +148,8 @@ def createContestPDF( problemlinks, contestName ):
             skeleton += "\n\\newpage" 
         skeleton += "\n\\end{document}"
         return createFile( skeleton, contestName )
-    except :
-        print(skeleton)
+    except Exception as e:
+        print(e)
 # problemLink = "https://codeforces.com/problemset/problem/1703/C"
 
 # print( problem )

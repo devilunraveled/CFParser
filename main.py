@@ -41,12 +41,14 @@ def liveContestProblemsPDF() :
             problemLinks = []
             contestLink = CodeForces + Contest + str(contestCode)
             problemCodes = Cp.contestPageParser( contestLink )
+            
+            # print(problemCodes)
 
             for code in problemCodes :
-                problemLinks.append(CodeForces + Contest + Problem + code)
-                # print(problemLinks[-1])
-            # contestName = "Contest " + str(contestCode)
-            # Pm.createContestPDF( problemLinks, contestName)
+                problemLinks.append(CodeForces + Contest + str(contestCode) + "/" + Problem + code)
+                print(problemLinks[-1])
+            contestName = "Contest " + str(contestCode)
+            Pm.createContestPDF( problemLinks, contestName)
         except Exception as e:
             print(e)
 
