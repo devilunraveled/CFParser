@@ -54,7 +54,7 @@ def liveContestProblemsPDF() :
 
             
 def oldContestProblemsPDF() :
-    contestCode = int(input("Enter The Contest Number ( e.g. 178, 1695)" ))
+    contestCode = int(input("Enter The Contest Number ( e.g. 178, 1695) : " ))
     if contestCode < 1 :
         print("Invalid Contest Number")
     else :

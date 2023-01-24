@@ -56,10 +56,11 @@ def createFile( texFile, fileName ):
         with open( fileName + ".tex", 'w' ) as file :
             file.write( texFile )
         
-        command = subprocess.Popen(['pdflatex', fileName + ".tex"])
+        command = subprocess.Popen(['pdflatex', '-quit', fileName + ".tex"], stdout=subprocess.PIPE, stderr=subprocess.PIPE )
         command.communicate()
         
         returnCode = command.returncode
+        print("Return Code : ", returnCode)
         
         if returnCode != 0 :
             os.unlink( fileName + ".pdf")
