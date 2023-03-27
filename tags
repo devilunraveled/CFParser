@@ -9,85 +9,48 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20220828.0/
-A. Web of Lies	Contest 1548.tex	/^\\section*{A. Web of Lies}$/;"	s
-B. Integers Have Friends	Contest 1548.tex	/^\\section*{B. Integers Have Friends}$/;"	s
 Base	src/output/colors.py	/^    Base = "\\033[38;5;"$/;"	v	class:Color
 Basic Features :	README.md	/^## Basic Features :$/;"	s	chapter:CFParser
 Black	src/output/colors.py	/^    Black = Base + "000" + End$/;"	v	class:Color
 Blue	src/output/colors.py	/^    Blue = Base + "004" + End$/;"	v	class:Color
-C. The Three Little Pigs	Contest 1548.tex	/^\\section*{C. The Three Little Pigs}$/;"	s
 CFParser	README.md	/^# CFParser$/;"	c
 CFParser	main.py	/^def CFParser() :$/;"	f
 CodeForces	main.py	/^CodeForces = "https:\/\/codeforces.com\/"$/;"	v
 Color	src/output/colors.py	/^class Color :$/;"	c
-Constriants	Contest 1548.tex	/^\\subsection*{Constriants}$/;"	u	section:A. Web of Lies
-Constriants	Contest 1548.tex	/^\\subsection*{Constriants}$/;"	u	section:B. Integers Have Friends
-Constriants	Contest 1548.tex	/^\\subsection*{Constriants}$/;"	u	section:C. The Three Little Pigs
-Constriants	Contest 1548.tex	/^\\subsection*{Constriants}$/;"	u	section:D1. Gregor and the Odd Cows (Easy)
-Constriants	Contest 1548.tex	/^\\subsection*{Constriants}$/;"	u	section:D2. Gregor and the Odd Cows (Hard)
-Constriants	Contest 1548.tex	/^\\subsection*{Constriants}$/;"	u	section:E. Gregor and the Two Painters
 Contest	main.py	/^Contest = "contest\/"$/;"	v
 Cp	main.py	/^import contestParser as Cp$/;"	I	nameref:module:contestParser
 Cyan	src/output/colors.py	/^    Cyan = Base + "086" + End$/;"	v	class:Color
-D1. Gregor and the Odd Cows (Easy)	Contest 1548.tex	/^\\section*{D1. Gregor and the Odd Cows (Easy)}$/;"	s
-D2. Gregor and the Odd Cows (Hard)	Contest 1548.tex	/^\\section*{D2. Gregor and the Odd Cows (Hard)}$/;"	s
 E	src/userdata.py	/^from errors import requestErrors as E$/;"	x	nameref:unknown:requestErrors
-E. Gregor and the Two Painters	Contest 1548.tex	/^\\section*{E. Gregor and the Two Painters}$/;"	s
+EPS	src/templates/main.cpp	/^const ld EPS = 1e-9;$/;"	v	typeref:typename:const ld
 End	src/output/colors.py	/^    End = "m"$/;"	v	class:Color
 Errenous	src/errors/requestErrors.py	/^def Errenous( string ):$/;"	f
-Examples	Contest 1548.tex	/^\\subsection*{Examples}$/;"	u	section:A. Web of Lies
-Examples	Contest 1548.tex	/^\\subsection*{Examples}$/;"	u	section:B. Integers Have Friends
-Examples	Contest 1548.tex	/^\\subsection*{Examples}$/;"	u	section:C. The Three Little Pigs
-Examples	Contest 1548.tex	/^\\subsection*{Examples}$/;"	u	section:D1. Gregor and the Odd Cows (Easy)
-Examples	Contest 1548.tex	/^\\subsection*{Examples}$/;"	u	section:D2. Gregor and the Odd Cows (Hard)
-Examples	Contest 1548.tex	/^\\subsection*{Examples}$/;"	u	section:E. Gregor and the Two Painters
 Green	src/output/colors.py	/^    Green = Base + "002" + End$/;"	v	class:Color
-Input Description	Contest 1548.tex	/^\\subsubsection*{Input Description}Each test contains multiple test cases. The first line contai/;"	b	subsection:B. Integers Have Friends""Constriants
-Input Description	Contest 1548.tex	/^\\subsubsection*{Input Description}The first line contains the integer $n$ ($3 \\le n \\le 6000$/;"	b	subsection:D1. Gregor and the Odd Cows (Easy)""Constriants
-Input Description	Contest 1548.tex	/^\\subsubsection*{Input Description}The first line contains the integer $n$ ($3 \\le n \\le 6000$/;"	b	subsection:D2. Gregor and the Odd Cows (Hard)""Constriants
-Input Description	Contest 1548.tex	/^\\subsubsection*{Input Description}The first line contains the integers $n$ and $m$ ($1 \\le n \\/;"	b	subsection:A. Web of Lies""Constriants
-Input Description	Contest 1548.tex	/^\\subsubsection*{Input Description}The first line contains three integers $n$, $m$ and $x$ ($1 \\/;"	b	subsection:E. Gregor and the Two Painters""Constriants
-Input Description	Contest 1548.tex	/^\\subsubsection*{Input Description}The first line of input contains two integers $n$ and $q$ ($1/;"	b	subsection:C. The Three Little Pigs""Constriants
+INF	src/templates/main.cpp	/^const ll INF = 1e9;$/;"	v	typeref:typename:const ll
+MAX_N	src/templates/main.cpp	/^const int MAX_N = 1e5 + 5;$/;"	v	typeref:typename:const int
+MOD	src/templates/main.cpp	/^const ll MOD = 1e9 + 7;$/;"	v	typeref:typename:const ll
 Next Feature In Development :	README.md	/^### Next Feature In Development :$/;"	S	section:CFParser""Basic Features :
-Note	Contest 1548.tex	/^1}}\\subsubsection*{Note}Consider the first example. In the first type 3 query, we have the diag/;"	b	subsection:A. Web of Lies""Examples
-Note	Contest 1548.tex	/^225\\\\ 2001\\\\ 6014\\\\ 6939}}\\subsubsection*{Note}In the example test, $n=2$. Thus, there ar/;"	b	subsection:C. The Three Little Pigs""Examples
-Note	Contest 1548.tex	/^29}}\\subsubsection*{Note}In the first example, there is only $1$ fence. That fence is interesti/;"	b	subsection:D2. Gregor and the Odd Cows (Hard)""Examples
-Note	Contest 1548.tex	/^3\\\\ 3\\\\ 2\\\\ 6}}\\subsubsection*{Note}In the first test case, the array is $[1,5,2,4,6]$. T/;"	b	subsection:B. Integers Have Friends""Examples
-Note	Contest 1548.tex	/^3}}\\subsubsection*{Note}In the first example, there is only $1$ fence. That fence is interestin/;"	b	subsection:D1. Gregor and the Odd Cows (Easy)""Examples
-Note	Contest 1548.tex	/^6}}\\subsubsection*{Note}The diagram below represents the first example. The numbers to the left/;"	b	subsection:E. Gregor and the Two Painters""Examples
 Orange	src/output/colors.py	/^    Orange = Base + "209" + End$/;"	v	class:Color
-Output Description :	Contest 1548.tex	/^\\subsubsection*{Output Description : }For each type $3$ query print one integer to a new line. /;"	b	subsection:A. Web of Lies""Constriants
-Output Description :	Contest 1548.tex	/^\\subsubsection*{Output Description : }Print a single integer, the number of badly painted regio/;"	b	subsection:E. Gregor and the Two Painters""Constriants
-Output Description :	Contest 1548.tex	/^\\subsubsection*{Output Description : }Print a single integer, the number of interesting fences./;"	b	subsection:D1. Gregor and the Odd Cows (Easy)""Constriants
-Output Description :	Contest 1548.tex	/^\\subsubsection*{Output Description : }Print a single integer, the number of interesting fences./;"	b	subsection:D2. Gregor and the Odd Cows (Hard)""Constriants
-Output Description :	Contest 1548.tex	/^\\subsubsection*{Output Description : }You should print $q$ lines, with line $i$ representing th/;"	b	subsection:C. The Three Little Pigs""Constriants
-Output Description :	Contest 1548.tex	/^\\subsubsection*{Output Description : }Your output should consist of $t$ lines. Each line should/;"	b	subsection:B. Integers Have Friends""Constriants
 P	src/output/pdfMaker.py	/^import siteparser as P$/;"	I	nameref:module:siteparser
 P	tests/tester.py	/^import pdfMaker as P$/;"	I	nameref:module:pdfMaker
 Pm	main.py	/^import pdfMaker as Pm$/;"	I	nameref:module:pdfMaker
 Problem	main.py	/^Problem = "problem\/"$/;"	v
 Problem	src/parser/siteparser.py	/^class Problem :$/;"	c
-Problem Statement	Contest 1548.tex	/^\\subsubsection*{Problem Statement}$/;"	b	subsection:A. Web of Lies""Constriants
-Problem Statement	Contest 1548.tex	/^\\subsubsection*{Problem Statement}$/;"	b	subsection:B. Integers Have Friends""Constriants
-Problem Statement	Contest 1548.tex	/^\\subsubsection*{Problem Statement}$/;"	b	subsection:C. The Three Little Pigs""Constriants
-Problem Statement	Contest 1548.tex	/^\\subsubsection*{Problem Statement}$/;"	b	subsection:D1. Gregor and the Odd Cows (Easy)""Constriants
-Problem Statement	Contest 1548.tex	/^\\subsubsection*{Problem Statement}$/;"	b	subsection:D2. Gregor and the Odd Cows (Hard)""Constriants
-Problem Statement	Contest 1548.tex	/^\\subsubsection*{Problem Statement}$/;"	b	subsection:E. Gregor and the Two Painters""Constriants
 ProblemSet	main.py	/^ProblemSet = "problemset\/"$/;"	v
 Red	src/output/colors.py	/^    Red = Base + "001" + End$/;"	v	class:Color
 Reset	src/output/colors.py	/^    Reset = "\\033[0m"$/;"	v	class:Color
 Violet	src/output/colors.py	/^    Violet = Base + "201" + End$/;"	v	class:Color
-\\gt	Contest 1548.tex	/^\\newcommand{\\gt}{\\ensuremath >}$/;"	C
-\\gt	Contest 1568.tex	/^\\newcommand{\\gt}{\\ensuremath >}$/;"	C
-\\lt	Contest 1548.tex	/^\\newcommand{\\lt}{\\ensuremath <}$/;"	C
-\\lt	Contest 1568.tex	/^\\newcommand{\\lt}{\\ensuremath <}$/;"	C
 __init__	src/parser/siteparser.py	/^    def __init__(self):$/;"	m	class:Problem
 __str__	src/parser/siteparser.py	/^    def __str__(self):$/;"	m	class:Problem
 aLilBetter	src/parser/siteparser.py	/^def aLilBetter( s ) :$/;"	f
+all	src/templates/main.cpp	/^#define all(/;"	d	file:
+ar	src/templates/main.cpp	/^#define ar /;"	d	file:
 contestPageParser	src/parser/contestParser.py	/^def contestPageParser( link ) :$/;"	f
 createContestPDF	src/output/pdfMaker.py	/^def createContestPDF( problemlinks, contestName ):$/;"	f
 createFile	src/output/pdfMaker.py	/^def createFile( texFile, fileName ):$/;"	f
 createTex	src/output/pdfMaker.py	/^def createTex( problem, heading, mode = 1 ) :$/;"	f
+dbg	src/templates/main.cpp	/^#define dbg(/;"	d	file:
+dbg_out	src/templates/main.cpp	/^template<typename Head, typename... Tail> void dbg_out(Head H, Tail... T) { cerr << ' ' << H; db/;"	f	typeref:typename:void
+dbg_out	src/templates/main.cpp	/^void dbg_out() { cerr << endl; }$/;"	f	typeref:typename:void
 displayClosingMessage	main.py	/^def displayClosingMessage() :$/;"	f
 displayRandomMessage	main.py	/^def displayRandomMessage() :$/;"	f
 displayUserData	src/userdata.py	/^def displayUserData( data ):$/;"	f
@@ -102,14 +65,19 @@ getAllData	src/userdata.py	/^def getAllData( username ):$/;"	f
 inputData	src/parser/siteparser.py	/^    inputData = []$/;"	v	class:Problem
 inputDescription	src/parser/siteparser.py	/^    inputDescription = ''$/;"	v	class:Problem
 inputTitleTag	src/parser/siteparser.py	/^inputTitleTag = []$/;"	v
+ld	src/templates/main.cpp	/^#define ld /;"	d	file:
 link	tests/tester.py	/^link = "https:\/\/codeforces.com\/problemset\/problem\/%s\/%s"$/;"	v
 liveContestProblemsPDF	main.py	/^def liveContestProblemsPDF() :$/;"	f
+ll	src/templates/main.cpp	/^#define ll /;"	d	file:
+main	src/templates/main.cpp	/^int main() {$/;"	f	typeref:typename:int
 makePDF	src/output/pdfMaker.py	/^def makePDF( problemLink, fileName, contest = 0):$/;"	f
 memoryDesc	src/parser/siteparser.py	/^    memoryDesc = ''$/;"	v	class:Problem
 memoryLimit	src/parser/siteparser.py	/^    memoryLimit = 0$/;"	v	class:Problem
 normalTest	tests/tester.py	/^def normalTest():$/;"	f
 note	src/parser/siteparser.py	/^    note = ''$/;"	v	class:Problem
 oldContestProblemsPDF	main.py	/^def oldContestProblemsPDF() :$/;"	f
+operator <<	src/templates/main.cpp	/^template<typename A, typename B> ostream& operator<<(ostream &os, const pair<A, B> &p) { return /;"	f	typeref:typename:ostream &
+operator <<	src/templates/main.cpp	/^template<typename T_container, typename T = typename enable_if<!is_same<T_container, string>::va/;"	f	typeref:typename:ostream &
 options	main.py	/^def options():$/;"	f
 outputData	src/parser/siteparser.py	/^    outputData = []$/;"	v	class:Problem
 outputDescription	src/parser/siteparser.py	/^    outputDescription = ''$/;"	v	class:Problem
@@ -121,6 +89,8 @@ purifySyntax	src/output/pdfMaker.py	/^def purifySyntax( string ):$/;"	f
 resetSkeleton	src/output/pdfMaker.py	/^def resetSkeleton( heading ):$/;"	f
 singleProblemPDF	main.py	/^def singleProblemPDF( ):$/;"	f
 skeleton	src/output/pdfMaker.py	/^skeleton = ""$/;"	v
+solve	src/templates/main.cpp	/^void solve() {$/;"	f	typeref:typename:void
+sza	src/templates/main.cpp	/^#define sza(/;"	d	file:
 timeDesc	src/parser/siteparser.py	/^    timeDesc = ''$/;"	v	class:Problem
 timeLimit	src/parser/siteparser.py	/^    timeLimit = 0$/;"	v	class:Problem
 urlreq	src/parser/contestParser.py	/^import urllib.request as urlreq$/;"	I	nameref:module:urllib.request
