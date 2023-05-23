@@ -1,6 +1,6 @@
 #Given a link to a problem, that will lead to it's page in 
 #the codeforces website, parse the problem into a Problem Object.
-import urllib.request as urlreq
+from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
 
 class Problem :
@@ -50,10 +50,8 @@ class Problem :
         self.outputData = []
         self.note = ''
 
-
-
-
 def extractProblemTitle( problemHTML, problem, inputTitleTag, outputTitleTag ):
+    # print(problemHTML)
     found = 0
     for child in problemHTML.descendants :
         try :
@@ -70,10 +68,11 @@ def extractProblemTitle( problemHTML, problem, inputTitleTag, outputTitleTag ):
         except :
             continue
     
+    # print(inputTitleTag)
+    # print(outputTitleTag)
     return problem
 
 def extractProblemConstraints( problemHTML, problem ):
-    
     for child in problemHTML.descendants :
         try :
             if "class" in child.attrs.keys() and "time-limit" in child["class"] :
@@ -91,22 +90,26 @@ def extractProblemConstraints( problemHTML, problem ):
                 problem.memoryLimit = int( memoryString[0] )
         except :
             continue
+    # print(problem.timeLimit)
+    # print(problem.memoryLimit)
 
     return problem
 
 def extractProblemStatement( problemHTML, problem ):
-
-    while ( True ) :
+    # print(problemHTML)
+    while True :
         try :
-            if ( "class" in problemHTML.attrs.keys() and "output-file" in problemHTML["class"] ) :
-                problemHTML = problemHTML.next_element
+            if ( "class" in problemHTML.attrs.keys() and "header" in problemHTML["class"] ) :
+                # problemHTML = problemHTML.next_element
                 break
-            else :
-                problemHTML = problemHTML.next_element
+            problemHTML = problemHTML.next_element
         except :
             problemHTML = problemHTML.next_element
-        
-    ufProblem = str( problemHTML.next_sibling.next_element )
+    
+    ufProblem = str( problemHTML.next_sibling )
+    
+    print(problemHTML.next_sibling)
+    print(ufProblem)
 
     ufProblem = aLilBetter( ufProblem )
     
@@ -131,13 +134,15 @@ def extractProblemStatement( problemHTML, problem ):
 
 
 def aLilBetter( s ) :
-    horribleProgrammingPractice = ['<span class="mn" id="MathJax-Span-97" style="font-size: 70.7%; font-family: MathJax_Main;">4</span>', '<span class="mi" id="MathJax-Span-142" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">']
-    somewhatTolearablePractice = ['<span class="mn" id="MathJax-Span-97" style="font-size: 70.7%; font-family: MathJax_Main;">^','<span class="mi" id="MathJax-Span-142" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">_']
+    horribleProgrammingPractice = ['<span class="mn" id="MathJax-Span-97" style="font-size: 70.7%; font-family: MathJax_Main;">4</span>', 
+                                   '<span class="mi" id="MathJax-Span-142" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">']
+    somewhatTolerablePractice = ['<span class="mn" id="MathJax-Span-97" style="font-size: 70.7%; font-family: MathJax_Main;">^',
+                                 '<span class="mi" id="MathJax-Span-142" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">_']
     for i in range ( 0, len(horribleProgrammingPractice) ) :
         crap = horribleProgrammingPractice[i]
-        kindacrap = somewhatTolearablePractice[i]
-        s.replace(crap,kindacrap)
-    return s
+        kindaCrap = somewhatTolerablePractice[i]
+        s.replace(crap,kindaCrap)
+    return s;
 
 def extractIODescription( problemHTML, problem ):
     counter = 0
@@ -276,8 +281,11 @@ def extractProblemInfo( problemHTML, problem, inputTitleTag, outputTitleTag ):
         
     return problem
 
-def parser( link ): 
-    fp = urlreq.urlopen(link)
+def parser( link ):
+    print(link)
+    hdr = {'User-Agent' : 'Mozilla/5.0'}
+    req = Request(link, headers=hdr)
+    fp = urlopen(req)
     html = fp.read().decode('utf-8')
     fp.close()
     # print(html)

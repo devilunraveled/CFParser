@@ -1,10 +1,12 @@
-import urllib.request as urlreq
+from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
 
 # link = "https://codeforces.com/contest/177"
 
 def contestPageParser( link ) :
-    fp = urlreq.urlopen(link)
+    hdr = {'User-Agent':'Mozilla/5.0'}
+    req = Request(site,headers=hdr)
+    fp = urlopen(req)
     html = fp.read().decode('utf-8')
     fp.close()
 

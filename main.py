@@ -69,7 +69,7 @@ def oldContestProblemsPDF() :
             contestName = "Contest " + str(contestCode)
             Pm.createContestPDF( problemLinks, contestName)
         except Exception as e:
-            print(e)
+            print("Encountered Error : ", e)
 
 
 def options():

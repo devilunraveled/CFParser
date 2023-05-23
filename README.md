@@ -18,4 +18,4 @@
 Custom Destination For Contest PDF
 Custom templates
 
-> **_Note:_** For interactive problems and problems that have diagrams/figures, support is not yet added, **DO NOT** use the parser for such problems as the complete problem/parts of it may not be accesible to you.
+> **_Note:_** For interactive problems and problems that have diagrams/figures, support is not yet added, **DO NOT** use the parser for such problems as the complete problem/parts of it may not be accessible to you.
