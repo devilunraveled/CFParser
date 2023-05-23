@@ -108,9 +108,6 @@ def extractProblemStatement( problemHTML, problem ):
     
     ufProblem = str( problemHTML.next_sibling )
     
-    print(problemHTML.next_sibling)
-    print(ufProblem)
-
     ufProblem = aLilBetter( ufProblem )
     
     insideTag = False
@@ -282,7 +279,8 @@ def extractProblemInfo( problemHTML, problem, inputTitleTag, outputTitleTag ):
     return problem
 
 def parser( link ):
-    print(link)
+
+    print(f"Processing : {link}")
     hdr = {'User-Agent' : 'Mozilla/5.0'}
     req = Request(link, headers=hdr)
     fp = urlopen(req)

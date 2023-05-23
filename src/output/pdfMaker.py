@@ -43,8 +43,8 @@ def resetSkeleton( heading ):
     return
 
 def purifySyntax( string ):
-    htmlSyntax = ["$$$", "&lt", "&gt", "&amp", "&quot", "&apos", "&cent", "&pound", "&yen", "&euro", "&copy", "&reg", "\n", " ", "\\xrightarrow", "\\xleftarrow", "≤", "≥" ]
-    change = ["$", "<", ">", "&", ' " ', " ' ", "¢", "£", "¥", "€", "©", "®", "\\\ ", " ", "\\rightarrow", "\\leftarrow", "$\\leq$", "$\\geq$"]
+    htmlSyntax = ["$$$", "&lt", "&gt", "&amp", "&quot", "&apos", "&cent", "&pound", "&yen", "&euro", "&copy", "&reg", "\n", " ", "\\xrightarrow", "\\xleftarrow", "≤", "≥", "≠" ]
+    change = ["$", "<", ">", "&", ' " ', " ' ", "¢", "£", "¥", "€", "©", "®", "\\\ ", " ", "\\rightarrow", "\\leftarrow", "$\\leq$", "$\\geq$", "$\\neq$"]
     
     for i in range ( len(change ) ):
         string = string.replace(htmlSyntax[i], change[i] )

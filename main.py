@@ -7,7 +7,12 @@ import pdfMaker as Pm
 import contestParser as Cp
 
 welcomeMessage = "Hello, thanks for using CFParser"
-
+line = "\u2500"
+side = "\u2502"
+topRightCorner = "\u2510"
+topLeftCorner = "\u250c"
+botRightCorner = "\u2518"
+botLeftCorner= "\u2514"
 CodeForces = "https://codeforces.com/"
 ProblemSet = "problemset/"
 Problem = "problem/"
@@ -46,7 +51,7 @@ def liveContestProblemsPDF() :
 
             for code in problemCodes :
                 problemLinks.append(CodeForces + Contest + str(contestCode) + "/" + Problem + code)
-                print(problemLinks[-1])
+                # print(problemLinks[-1])
             contestName = "Contest " + str(contestCode)
             Pm.createContestPDF( problemLinks, contestName)
         except Exception as e:
@@ -73,11 +78,22 @@ def oldContestProblemsPDF() :
 
 
 def options():
-    print("Enter 1 to Solve A problem of your choice")
-    print("Enter 2 to Get A Running Contests' Problems")
-    print("Enter 3 to Get an old Contests' Problems")
-    print("Enter 0 to exit")
+    length = 38
+    print(topLeftCorner + line*length + topRightCorner)
+    print(f"{side} 1 : Solve a single Problem {' '*9} {side}")
+    print(side + line*length + side )
+    print(f"{side} 2 : Get A Running Contests' Problems {side}")
+    print(side + line*length + side)
+    print(f"{side} 3 : Get an old Contests' Problems {' '*2} {side}")
+    print(side + line*length + side)
+    print(f"{side} 0 : Exit the command line {' '*10} {side}")
+    print(botLeftCorner + line*length + botRightCorner)
 
+def displayWelcomeMessage() :
+    length = 50
+    print(topLeftCorner + line*length + topRightCorner)
+    print(f"{side} {' '*7} {welcomeMessage} {' '*7} {side}")
+    print(botLeftCorner + line*length + botRightCorner)
 
 def displayClosingMessage() :
     return 
@@ -85,24 +101,26 @@ def displayClosingMessage() :
 def displayRandomMessage() :
     return
 
+def displayRandomInsult() :
+    return
+
 def CFParser() :
-    print( welcomeMessage )
-    functionList = [ singleProblemPDF, liveContestProblemsPDF, oldContestProblemsPDF ]
-    while True :
+    try : 
+        displayWelcomeMessage()
+        functionList = [ singleProblemPDF, liveContestProblemsPDF, oldContestProblemsPDF ]
         options() #Give the available functions to the user.
         
         choice = int( input ("Enter Your Choice : ") )
         
         if choice == 0 :
             displayClosingMessage()
-            break
-        
-        if choice < 0 :
+        elif choice < 0 :
             displayRandomMessage()
-            break
-
-        if choice <= len( functionList ) :
+        elif choice <= len( functionList ) :
             functionList[ choice - 1 ]()
-        
+        else :
+            displayRandomMessage()
+    except (Exception):
+        displayRandomInsult()
 if __name__ == '__main__' :
     CFParser()

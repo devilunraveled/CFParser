@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 def contestPageParser( link ) :
     hdr = {'User-Agent':'Mozilla/5.0'}
-    req = Request(site,headers=hdr)
+    req = Request(link,headers=hdr)
     fp = urlopen(req)
     html = fp.read().decode('utf-8')
     fp.close()
