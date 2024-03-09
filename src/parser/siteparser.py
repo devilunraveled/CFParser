@@ -275,31 +275,46 @@ def extractProblemInfo( problemHTML, problem, inputTitleTag, outputTitleTag ):
     problem = extractIODescription( problemHTML, problem )
     problem = extractProblemInput( inputTitleTag, problem )
     problem = extractProblemOutput( outputTitleTag, problem )
-        
+    print("Problem : ") 
+    print(problem)
+
     return problem
 
 def parser( link ):
 
     print(f"Processing : {link}")
-    hdr = {'User-Agent' : 'Mozilla/5.0'}
-    req = Request(link, headers=hdr)
-    fp = urlopen(req)
-    html = fp.read().decode('utf-8')
-    fp.close()
-    # print(html)
-    problem = Problem()
-    inputTitleTag = []
-    outputTitleTag = []
-    htmlObject = BeautifulSoup(html, 'html.parser')
+    print("What")
+    hdr = {
+        'User-Agent': 'Chrome/58.0.3029.110',
+        'Referer': link
+    }
+    print("The")
 
-    problemTag = ""
+    try:
+        req = Request(link, headers=hdr)
+        fp = urlopen(req)
+        html = fp.read().decode('utf-8')
+        fp.close()
+        problem = Problem()
+        inputTitleTag = []
+        outputTitleTag = []
+        htmlObject = BeautifulSoup(html, 'html.parser')
 
-    for child in htmlObject.find_all('div'):
-        if "class" in child.attrs.keys() and "problem-statement" in child["class"]:
-            problemTag = child
-#Now, we have found at what point, the search should begin for the problem statement.
+        problemTag = ""
 
-    return extractProblemInfo( problemTag, problem, inputTitleTag, outputTitleTag )
+        for child in htmlObject.find_all('div'):
+            if "class" in child.attrs.keys() and "problem-statement" in child["class"]:
+                problemTag = child
+        #Now, we have found at what point, the search should begin for the problem statement.
+
+        return extractProblemInfo( problemTag, problem, inputTitleTag, outputTitleTag )
+    except HTTPError as e:
+        print("HTTP Error:", e.code, e.reason)
+    except URLError as e:
+        print("URL Error:", e.reason)
+    except Exception as e:
+        print("An error occurred:", str(e))
+    
 
 inputTitleTag = []
 outputTitleTag = []

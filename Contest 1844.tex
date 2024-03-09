@@ -1,0 +1,361 @@
+\documentclass{article}
+\usepackage{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage[a4paper, total={6in, 10in}]{geometry}
+\title{CodeForces Problem}
+\date{July 11, 2023}
+\author{}
+\begin{document}
+\maketitle
+\newcommand{\lt}{\ensuremath <}
+\newcommand{\gt}{\ensuremath >}
+\section*{A. Subtraction Game}
+\subsection*{Constriants}
+\textbf{Time Limit}
+1 seconds
+\hfill
+\textbf{Memory Limit}
+256 MB
+\subsubsection*{Problem Statement}
+\paragraph{}You are given two positive integers, $a$ and $b$ ($a <; b$).
+
+For some positive integer $n$, two players will play a game starting with a pile of $n$ stones. They take turns removing exactly $a$ or exactly $b$ stones from the pile. The player who is unable to make a move loses.
+
+Find a positive integer $n$ such that the second player to move in this game has a winning strategy. This means that no matter what moves the first player makes, the second player can carefully choose their moves (possibly depending on the first player's moves) to ensure they win.
+\paragraph{}
+\subsubsection*{Input Description}Each test contains multiple test cases. The first line contains the number of test cases $t$ ($1 \le t \le 100$). The description of the test cases follows.
+
+The only line of each test case contains two integers, $a$ and $b$ ($1 \le a <; b \le 100$).
+\paragraph{}
+\subsubsection*{Output Description : }For each test case, output any positive integer $n$ ($1 \le n \le 10^6$) such that the second player to move wins.
+
+It can be proven that such an $n$ always exists under the constraints of the problem.
+\subsection*{Examples}
+\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Input}
+
+3\\ 1 4\\ 1 5\\ 9 26
+
+\textbf{Output}
+
+2\\ 6\\ 3}}\subsubsection*{Note}In the first test case, when $n = 2$, the first player must remove $a = 1$ stone. Then, the second player can respond by removing $a = 1$ stone. The first player can no longer make a move, so the second player wins.\\ In the second test case, when $n = 6$, the first player has two options:   If they remove $b = 5$ stones, then the second player can respond by removing $a = 1$ stone. The first player can no longer make a move, so the second player wins.  If they remove $a = 1$ stone, then the second player can respond by removing $a = 1$ stone. Afterwards, the players can only alternate removing exactly $a = 1$ stone. The second player will take the last stone and win.  Since the second player has a winning strategy no matter what the first player does, this is an acceptable output.\\ In the third test case, the first player cannot make any moves when $n = 3$, so the second player immediately wins.
+\newpage
+\section*{B. Permutations & Primes}
+\subsection*{Constriants}
+\textbf{Time Limit}
+1 seconds
+\hfill
+\textbf{Memory Limit}
+256 MB
+\subsubsection*{Problem Statement}
+\paragraph{}You are given a positive integer $n$.
+
+In this problem, the $\operatorname{MEX}$ of a collection of integers $c_1,c_2,\dots,c_k$ is defined as the smallest positive integer $x$ which does not occur in the collection $c$. 
+
+The primality of an array $a_1,\dots,a_n$ is defined as the number of pairs $(l,r)$ such that $1 \le l \le r \le n$ and $\operatorname{MEX}(a_l,\dots,a_r)$ is a prime number. 
+
+Find any permutation of $1,2,\dots,n$ with the maximum possible primality among all permutations of $1,2,\dots,n$. 
+
+Note:   A prime number is a number greater than or equal to $2$ that is not divisible by any positive integer except $1$ and itself. For example, $2,5,13$ are prime numbers, but $1$ and $6$ are not prime numbers.  A permutation of $1,2,\dots,n$ is an array consisting of $n$ distinct integers from $1$ to $n$ in arbitrary order. For example, $[2,3,1,5,4]$ is a permutation, but $[1,2,2]$ is not a permutation ($2$ appears twice in the array), and $[1,3,4]$ is also not a permutation ($n=3$ but there is $4$ in the array).
+\paragraph{}
+\subsubsection*{Input Description}Each test contains multiple test cases. The first line contains the number of test cases $t$ ($1 \le t \le 10^4$). The description of the test cases follows.
+
+The only line of each test case contains a single integer $n$ ($1 \le n \le 2 \cdot 10^5$).
+
+It is guaranteed that the sum of $n$ over all test cases does not exceed $2 \cdot 10^5$.
+\paragraph{}
+\subsubsection*{Output Description : }For each test case, output $n$ integers: a permutation of $1,2,\dots,n$ that achieves the maximum possible primality.
+
+If there are multiple solutions, print any of them.
+\subsection*{Examples}
+\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Input}
+
+3\\ 2\\ 1\\ 5
+
+\textbf{Output}
+
+2 1\\ 1\\ 5 2 1 4 3}}\subsubsection*{Note}In the first test case, there are $3$ pairs $(l,r)$ with $1 \le l \le r \le 2$, out of which $2$ have a prime $\operatorname{MEX}(a_l,\dots,a_r)$:   $(l,r) = (1,1)$: $\operatorname{MEX}(2) = 1$, which is not prime.  $(l,r) = (1,2)$: $\operatorname{MEX}(2,1) = 3$, which is prime.  $(l,r) = (2,2)$: $\operatorname{MEX}(1) = 2$, which is prime.  Therefore, the primality is $2$.\\ In the second test case, $\operatorname{MEX}(1) = 2$ is prime, so the primality is $1$.\\ In the third test case, the maximum possible primality is $8$.
+\newpage
+\section*{C. Particles}
+\subsection*{Constriants}
+\textbf{Time Limit}
+1 seconds
+\hfill
+\textbf{Memory Limit}
+256 MB
+\subsubsection*{Problem Statement}
+\paragraph{}You have discovered $n$ mysterious particles on a line with integer charges of $c_1,\dots,c_n$. You have a device that allows you to perform the following operation:   Choose a particle and remove it from the line. The remaining particles will shift to fill in the gap that is created. If there were particles with charges $x$ and $y$ directly to the left and right of the removed particle, they combine into a single particle of charge $x+y$. 
+
+For example, if the line of particles had charges of $[-3,1,4,-1,5,-9]$, performing the operation on the $4$th particle will transform the line into $[-3,1,9,-9]$.  
+
+If we then use the device on the $1$st particle in this new line, the line will turn into $[1,9,-9]$. 
+
+You will perform operations until there is only one particle left. What is the maximum charge of this remaining particle that you can obtain?
+\paragraph{}
+\subsubsection*{Input Description}Each test contains multiple test cases. The first line contains the number of test cases $t$ ($1 \le t \le 10^4$). The description of the test cases follows.
+
+The first line of each test case contains a single integer $n$ ($1 \le n \le 2 \cdot 10^5$).
+
+The second line of each test case contains $n$ integers $c_1,\dots,c_n$ ($-10^9 \le c_i \le 10^9$).
+
+It is guaranteed that the sum of $n$ over all test cases does not exceed $2 \cdot 10^5$.
+\paragraph{}
+\subsubsection*{Output Description : }For each test case, output one integer, the maximum charge of the remaining particle.
+\subsection*{Examples}
+\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Input}
+
+3\\ 6\\ -3 1 4 -1 5 -9\\ 5\\ 998244353 998244353 998244353 998244353 998244353\\ 1\\ -2718
+
+\textbf{Output}
+
+9\\ 2994733059\\ -2718}}\subsubsection*{Note}In the first test case, the best strategy is to use the device on the $4$th particle, then on the $1$st particle (as described in the statement), and finally use the device on the new $3$rd particle followed by the $1$st particle.\\ In the second test case, the best strategy is to use the device on the $4$th particle to transform the line into $[998244353,998244353,1996488706]$, then on the $2$nd particle to transform the line into $[2994733059]$. Be wary of integer overflow.\\ In the third test case, there is only one particle, so no operations can be performed.
+\newpage
+\section*{D. Row Major}
+\subsection*{Constriants}
+\textbf{Time Limit}
+2 seconds
+\hfill
+\textbf{Memory Limit}
+256 MB
+\subsubsection*{Problem Statement}
+\paragraph{}The row-major order of an $r \times c$ grid of characters $A$ is the string obtained by concatenating all the rows, i.e. $$ A_{11}A_{12} \dots A_{1c}A_{21}A_{22} \dots A_{2c} \dots A_{r1}A_{r2} \dots A_{rc}. $$
+
+A grid of characters $A$ is bad if there are some two adjacent cells (cells sharing an edge) with the same character.
+
+You are given a positive integer $n$. Consider all strings $s$ consisting of only lowercase Latin letters such that they are not the row-major order of any bad grid. Find any string with the minimum number of distinct characters among all such strings of length $n$.
+
+It can be proven that at least one such string exists under the constraints of the problem.
+\paragraph{}
+\subsubsection*{Input Description}Each test contains multiple test cases. The first line contains the number of test cases $t$ ($1 \le t \le 10^4$). The description of the test cases follows.
+
+The only line of each test case contains a single integer $n$ ($1 \le n \le 10^6$).
+
+It is guaranteed that the sum of $n$ over all test cases does not exceed $10^6$.
+\paragraph{}
+\subsubsection*{Output Description : }For each test case, output a string with the minimum number of distinct characters among all suitable strings of length $n$.
+
+If there are multiple solutions, print any of them.
+\subsection*{Examples}
+\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Input}
+
+4\\ 4\\ 2\\ 1\\ 6
+
+\textbf{Output}
+
+that\\ is\\ a\\ tomato}}\subsubsection*{Note}In the first test case, there are $3$ ways $s$ can be the row-major order of a grid, and they are all not bad: tththathatat It can be proven that $3$ distinct characters is the minimum possible.\\ In the second test case, there are $2$ ways $s$ can be the row-major order of a grid, and they are both not bad: iiss It can be proven that $2$ distinct characters is the minimum possible.\\ In the third test case, there is only $1$ way $s$ can be the row-major order of a grid, and it is not bad.\\ In the fourth test case, there are $4$ ways $s$ can be the row-major order of a grid, and they are all not bad: ttotomtomatoomaatomtoato It can be proven that $4$ distinct characters is the minimum possible. Note that, for example, the string "orange" is not an acceptable output because it has $6 >; 4$ distinct characters, and the string "banana" is not an acceptable output because it is the row-major order of the following bad grid: banana
+\newpage
+\section*{E. Great Grids}
+\subsection*{Constriants}
+\textbf{Time Limit}
+1 seconds
+\hfill
+\textbf{Memory Limit}
+256 MB
+\subsubsection*{Problem Statement}
+\paragraph{}An $n \times m$ grid of characters is called great if it satisfies these three conditions:   Each character is either 'A', 'B', or 'C'.  Every $2 \times 2$ contiguous subgrid contains all three different letters.  Any two cells that share a common edge contain different letters. 
+
+Let $(x,y)$ denote the cell in the $x$-th row from the top and $y$-th column from the left.
+
+You want to construct a great grid that satisfies $k$ constraints. Each constraint consists of two cells, $(x_{i,1},y_{i,1})$ and $(x_{i,2},y_{i,2})$, that share exactly one corner. You want your great grid to have the same letter in cells $(x_{i,1},y_{i,1})$ and $(x_{i,2},y_{i,2})$.
+
+Determine whether there exists a great grid satisfying all the constraints.
+\paragraph{}
+\subsubsection*{Input Description}Each test contains multiple test cases. The first line contains the number of test cases $t$ ($1 \le t \le 10^3$). The description of the test cases follows.
+
+The first line of each test case contains three integers, $n$, $m$, and $k$ ($2 \le n,m \le 2 \cdot 10^3$, $1 \le k \le 4 \cdot 10^3$).
+
+Each of the next $k$ lines contains four integers, $x_{i,1}$, $y_{i,1}$, $x_{i,2}$, and $y_{i,2}$ ($1 \le x_{i,1} <; x_{i,2} \le n$, $1 \le y_{i,1},y_{i,2} \le m$). It is guaranteed that either $(x_{i,2},y_{i,2}) = (x_{i,1}+1,y_{i,1}+1)$ or $(x_{i,2},y_{i,2}) = (x_{i,1}+1,y_{i,1}-1)$.
+
+The pairs of cells are pairwise distinct, i.e. for all $1 \le i <; j \le k$, it is not true that $x_{i,1} = x_{j,1}$, $y_{i,1} = y_{j,1}$, $x_{i,2} = x_{j,2}$, and $y_{i,2} = y_{j,2}$.
+
+It is guaranteed that the sum of $n$ over all test cases does not exceed $2 \cdot 10^3$.
+
+It is guaranteed that the sum of $m$ over all test cases does not exceed $2 \cdot 10^3$.
+
+It is guaranteed that the sum of $k$ over all test cases does not exceed $4 \cdot 10^3$.
+\paragraph{}
+\subsubsection*{Output Description : }For each test case, output "YES" if a great grid satisfying all the constraints exists and "NO" otherwise.
+
+You can output the answer in any case (upper or lower). For example, the strings "yEs", "yes", "Yes", and "YES" will be recognized as positive responses.
+\subsection*{Examples}
+\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Input}
+
+4\\ 3 4 4\\ 1 1 2 2\\ 2 1 3 2\\ 1 4 2 3\\ 2 3 3 2\\ 2 7 2\\ 1 1 2 2\\ 1 2 2 1\\ 8 5 4\\ 1 2 2 1\\ 1 5 2 4\\ 7 1 8 2\\ 7 4 8 5\\ 8 5 4\\ 1 2 2 1\\ 1 5 2 4\\ 7 1 8 2\\ 7 5 8 4
+
+\textbf{Output}
+
+YES\\ NO\\ YES\\ NO}}\subsubsection*{Note}In the first test case, the following great grid satisfies all the constraints: BABCCBCAACAB\\ In the second test case, the two constraints imply that cells $(1,1)$ and $(2,2)$ have the same letter and cells $(1,2)$ and $(2,1)$ have the same letter, which makes it impossible for the only $2 \times 2$ subgrid to contain all three different letters.
+\newpage
+\section*{F1. Min Cost Permutation (Easy Version)}
+\subsection*{Constriants}
+\textbf{Time Limit}
+3 seconds
+\hfill
+\textbf{Memory Limit}
+256 MB
+\subsubsection*{Problem Statement}
+\paragraph{}The only difference between this problem and the hard version is the constraints on $t$ and $n$.
+
+You are given an array of $n$ positive integers $a_1,\dots,a_n$, and a (possibly negative) integer $c$.
+
+Across all permutations $b_1,\dots,b_n$ of the array $a_1,\dots,a_n$, consider the minimum possible value of $$\sum_{i=1}^{n-1} |b_{i+1}-b_i-c|.$$ Find the lexicographically smallest permutation $b$ of the array $a$ that achieves this minimum.
+
+A sequence $x$ is lexicographically smaller than a sequence $y$ if and only if one of the following holds: $x$ is a prefix of $y$, but $x \ne y$; in the first position where $x$ and $y$ differ, the sequence $x$ has a smaller element than the corresponding element in $y$.
+\paragraph{}
+\subsubsection*{Input Description}Each test contains multiple test cases. The first line contains the number of test cases $t$ ($1 \le t \le 10^3$). The description of the test cases follows.
+
+The first line of each test case contains two integers $n$ and $c$ ($1 \le n \le 5 \cdot 10^3$, $-10^9 \le c \le 10^9$).
+
+The second line of each test case contains $n$ integers $a_1,\dots,a_n$ ($1 \le a_i \le 10^9$).
+
+It is guaranteed that the sum of $n$ over all test cases does not exceed $5 \cdot 10^3$.
+\paragraph{}
+\subsubsection*{Output Description : }For each test case, output $n$ integers $b_1,\dots,b_n$, the lexicographically smallest permutation of $a$ that achieves the minimum $\sum\limits_{i=1}^{n-1} |b_{i+1}-b_i-c|$.
+\subsection*{Examples}
+\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Input}
+
+3\\ 6 -7\\ 3 1 4 1 5 9\\ 3 2\\ 1 3 5\\ 1 2718\\ 2818
+
+\textbf{Output}
+
+9 3 1 4 5 1\\ 1 3 5\\ 2818}}\subsubsection*{Note}In the first test case, it can be proven that the minimum possible value of $\sum\limits_{i=1}^{n-1} |b_{i+1}-b_i-c|$ is $27$, and the permutation $b = [9,3,1,4,5,1]$ is the lexicographically smallest permutation of $a$ that achieves this minimum: $|3-9-(-7)|+|1-3-(-7)|+|4-1-(-7)|+|5-4-(-7)|+|1-5-(-7)| = 1+5+10+8+3 = 27$.\\ In the second test case, the minimum possible value of $\sum\limits_{i=1}^{n-1} |b_{i+1}-b_i-c|$ is $0$, and $b = [1,3,5]$ is the lexicographically smallest permutation of $a$ that achieves this.\\ In the third test case, there is only one permutation $b$.
+\newpage
+\section*{F2. Min Cost Permutation (Hard Version)}
+\subsection*{Constriants}
+\textbf{Time Limit}
+3 seconds
+\hfill
+\textbf{Memory Limit}
+256 MB
+\subsubsection*{Problem Statement}
+\paragraph{}The only difference between this problem and the easy version is the constraints on $t$ and $n$.
+
+You are given an array of $n$ positive integers $a_1,\dots,a_n$, and a (possibly negative) integer $c$.
+
+Across all permutations $b_1,\dots,b_n$ of the array $a_1,\dots,a_n$, consider the minimum possible value of $$\sum_{i=1}^{n-1} |b_{i+1}-b_i-c|.$$ Find the lexicographically smallest permutation $b$ of the array $a$ that achieves this minimum.
+
+A sequence $x$ is lexicographically smaller than a sequence $y$ if and only if one of the following holds: $x$ is a prefix of $y$, but $x \ne y$; in the first position where $x$ and $y$ differ, the sequence $x$ has a smaller element than the corresponding element in $y$.
+\paragraph{}
+\subsubsection*{Input Description}Each test contains multiple test cases. The first line contains the number of test cases $t$ ($1 \le t \le 10^4$). The description of the test cases follows.
+
+The first line of each test case contains two integers $n$ and $c$ ($1 \le n \le 2 \cdot 10^5$, $-10^9 \le c \le 10^9$).
+
+The second line of each test case contains $n$ integers $a_1,\dots,a_n$ ($1 \le a_i \le 10^9$).
+
+It is guaranteed that the sum of $n$ over all test cases does not exceed $2 \cdot 10^5$.
+\paragraph{}
+\subsubsection*{Output Description : }For each test case, output $n$ integers $b_1,\dots,b_n$, the lexicographically smallest permutation of $a$ that achieves the minimum $\sum\limits_{i=1}^{n-1} |b_{i+1}-b_i-c|$.
+\subsection*{Examples}
+\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Input}
+
+3\\ 6 -7\\ 3 1 4 1 5 9\\ 3 2\\ 1 3 5\\ 1 2718\\ 2818
+
+\textbf{Output}
+
+9 3 1 4 5 1\\ 1 3 5\\ 2818}}\subsubsection*{Note}In the first test case, it can be proven that the minimum possible value of $\sum\limits_{i=1}^{n-1} |b_{i+1}-b_i-c|$ is $27$, and the permutation $b = [9,3,1,4,5,1]$ is the lexicographically smallest permutation of $a$ that achieves this minimum: $|3-9-(-7)|+|1-3-(-7)|+|4-1-(-7)|+|5-4-(-7)|+|1-5-(-7)| = 1+5+10+8+3 = 27$.\\ In the second test case, the minimum possible value of $\sum\limits_{i=1}^{n-1} |b_{i+1}-b_i-c|$ is $0$, and $b = [1,3,5]$ is the lexicographically smallest permutation of $a$ that achieves this.\\ In the third test case, there is only one permutation $b$.
+\newpage
+\section*{G. Tree Weights}
+\subsection*{Constriants}
+\textbf{Time Limit}
+5 seconds
+\hfill
+\textbf{Memory Limit}
+256 MB
+\subsubsection*{Problem Statement}
+\paragraph{}You are given a tree with $n$ nodes labelled $1,2,\dots,n$. The $i$-th edge connects nodes $u_i$ and $v_i$ and has an unknown positive integer weight $w_i$. To help you figure out these weights, you are also given the distance $d_i$ between the nodes $i$ and $i+1$ for all $1 \le i \le n-1$ (the sum of the weights of the edges on the simple path between the nodes $i$ and $i+1$ in the tree).
+
+Find the weight of each edge. If there are multiple solutions, print any of them. If there are no weights $w_i$ consistent with the information, print a single integer $-1$.
+\paragraph{}
+\subsubsection*{Input Description}The first line contains a single integer $n$ ($2 \le n \le 10^5$).
+
+The $i$-th of the next $n-1$ lines contains two integers $u_i$ and $v_i$ ($1 \le u_i,v_i \le n$, $u_i \ne v_i$).
+
+The last line contains $n-1$ integers $d_1,\dots,d_{n-1}$ ($1 \le d_i \le 10^{12}$).
+
+It is guaranteed that the given edges form a tree.
+\paragraph{}
+\subsubsection*{Output Description : }If there is no solution, print a single integer $-1$. Otherwise, output $n-1$ lines containing the weights $w_1,\dots,w_{n-1}$.
+
+If there are multiple solutions, print any of them.
+\subsection*{Examples}
+\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Input}
+
+5\\ 1 2\\ 1 3\\ 2 4\\ 2 5\\ 31 41 59 26
+
+\textbf{Output}
+
+31\\ 10\\ 18\\ 8}}
+\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Input}
+
+3\\ 1 2\\ 1 3\\ 18 18
+
+\textbf{Output}
+
+-1}}
+\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Input}
+
+9\\ 3 1\\ 4 1\\ 5 9\\ 2 6\\ 5 3\\ 5 8\\ 9 7\\ 9 2\\ 236 205 72 125 178 216 214 117
+
+\textbf{Output}
+
+31\\ 41\\ 59\\ 26\\ 53\\ 58\\ 97\\ 93}}\subsubsection*{Note}In the first sample, the tree is as follows:  \\ In the second sample, note that $w_2$ is not allowed to be $0$ because it must be a positive integer, so there is no solution.\\ In the third sample, the tree is as follows:
+\newpage
+\section*{H. Multiple of Three Cycles}
+\subsection*{Constriants}
+\textbf{Time Limit}
+3 seconds
+\hfill
+\textbf{Memory Limit}
+256 MB
+\subsubsection*{Problem Statement}
+\paragraph{}An array $a_1,\dots,a_n$ of length $n$ is initially all blank. There are $n$ updates where one entry of $a$ is updated to some number, such that $a$ becomes a permutation of $1,2,\dots,n$ after all the updates.
+
+After each update, find the number of ways (modulo $998\,244\,353$) to fill in the remaining blank entries of $a$ so that $a$ becomes a permutation of $1,2,\dots,n$ and all cycle lengths in $a$ are multiples of $3$.
+
+A permutation of $1,2,\dots,n$ is an array of length $n$ consisting of $n$ distinct integers from $1$ to $n$ in arbitrary order. A cycle in a permutation $a$ is a sequence of pairwise distinct integers $(i_1,\dots,i_k)$ such that $i_2 = a_{i_1},i_3 = a_{i_2},\dots,i_k = a_{i_{k-1}},i_1 = a_{i_k}$. The length of this cycle is the number $k$, which is a multiple of $3$ if and only if $k \equiv 0 \pmod 3$.
+\paragraph{}
+\subsubsection*{Input Description}The first line contains a single integer $n$ ($3 \le n \le 3 \cdot 10^5$, $n \equiv 0 \pmod 3$).
+
+The $i$-th of the next $n$ lines contains two integers $x_i$ and $y_i$, representing that the $i$-th update changes $a_{x_i}$ to $y_i$.
+
+It is guaranteed that $x_1,\dots,x_n$ and $y_1,\dots,y_n$ are permutations of $1,2,\dots,n$, i.e. $a$ becomes a permutation of $1,2,\dots,n$ after all the updates.
+\paragraph{}
+\subsubsection*{Output Description : }Output $n$ lines: the number of ways (modulo $998\,244\,353$) after the first $1,2,\dots,n$ updates.
+\subsection*{Examples}
+\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Input}
+
+6\\ 3 2\\ 1 4\\ 4 5\\ 2 6\\ 5 1\\ 6 3
+
+\textbf{Output}
+
+32\\ 8\\ 3\\ 2\\ 1\\ 1}}
+\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Input}
+
+3\\ 1 1\\ 2 3\\ 3 2
+
+\textbf{Output}
+
+0\\ 0\\ 0}}
+\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Input}
+
+18\\ 1 2\\ 2 3\\ 3 4\\ 4 5\\ 5 6\\ 6 7\\ 7 8\\ 8 9\\ 9 10\\ 10 11\\ 11 12\\ 12 13\\ 13 14\\ 14 15\\ 15 16\\ 16 17\\ 17 18\\ 18 1
+
+\textbf{Output}
+
+671571067\\ 353924552\\ 521242461\\ 678960117\\ 896896000\\ 68992000\\ 6272000\\ 627200\\ 62720\\ 7840\\ 1120\\ 160\\ 32\\ 8\\ 2\\ 1\\ 1\\ 1}}\subsubsection*{Note}In the first sample, for example, after the $3$rd update the $3$ ways to complete the permutation $a = [4,\_,2,5,\_,\_]$ are as follows:   $[4,1,2,5,6,3]$: The only cycle is $(1\,4\,5\,6\,3\,2)$, with length $6$.  $[4,6,2,5,1,3]$: The cycles are $(1\,4\,5)$ and $(2\,6\,3)$, with lengths $3$ and $3$.  $[4,6,2,5,3,1]$: The only cycle is $(1\,4\,5\,3\,2\,6)$, with length $6$. \\ In the second sample, the first update creates a cycle of length $1$, so there are no ways to make all cycle lengths a multiple of $3$.
+\newpage
+\end{document}

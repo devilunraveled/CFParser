@@ -4,7 +4,10 @@ from bs4 import BeautifulSoup
 # link = "https://codeforces.com/contest/177"
 
 def contestPageParser( link ) :
-    hdr = {'User-Agent':'Mozilla/5.0'}
+    hdr = {
+        'User-Agent': 'Chrome/58.0.3029.110',
+        'Referer': link
+    }
     req = Request(link,headers=hdr)
     fp = urlopen(req)
     html = fp.read().decode('utf-8')

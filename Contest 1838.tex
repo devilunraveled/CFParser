@@ -1,0 +1,336 @@
+\documentclass{article}
+\usepackage{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage[a4paper, total={6in, 10in}]{geometry}
+\title{CodeForces Problem}
+\date{June 04, 2023}
+\author{}
+\begin{document}
+\maketitle
+\newcommand{\lt}{\ensuremath <}
+\newcommand{\gt}{\ensuremath >}
+\section*{A. Blackboard List}
+\subsection*{Constriants}
+\textbf{Time Limit}
+1 seconds
+\hfill
+\textbf{Memory Limit}
+256 MB
+\subsubsection*{Problem Statement}
+\paragraph{}Two integers were written on a blackboard. After that, the following step was carried out $n-2$ times:  Select any two integers on the board, and write the absolute value of their difference on the board. 
+
+After this process was complete, the list of $n$ integers was shuffled. You are given the final list. Recover one of the initial two numbers. You do not need to recover the other one.
+
+You are guaranteed that the input can be generated using the above process.
+\paragraph{}
+\subsubsection*{Input Description}The first line of the input contains a single integer $t$ ($1 \le t \le 100$) — the number of test cases. The description of the test cases follows.
+
+The first line of each test case contains a single integer $n$ ($3 \le n \le 100$) — the size of the final list.
+
+The next line of each test case contains $n$ integers $a_1, a_2, \ldots a_n$ ($-10^9 \le a_i \le 10^9$) — the shuffled list of numbers written on the blackboard.
+
+It is guaranteed that the input was generated using the process described above.
+\paragraph{}
+\subsubsection*{Output Description : }For each test case, output a single integer $x$ — one of the two initial numbers on the blackboard.
+
+If there are multiple solutions, print any of them.
+\subsection*{Examples}
+\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Input}
+
+9\\ 3\\ 9 2 7\\ 3\\ 15 -4 11\\ 4\\ -9 1 11 -10\\ 5\\ 3 0 0 0 3\\ 7\\ 8 16 8 0 8 16 8\\ 4\\ 0 0 0 0\\ 10\\ 27 1 24 28 2 -1 26 25 28 27\\ 6\\ 600000000 800000000 0 -200000000 1000000000 800000000\\ 3\\ 0 -1000000000 1000000000
+
+\textbf{Output}
+
+9\\ 11\\ -9\\ 3\\ 8\\ 0\\ -1\\ 600000000\\ 0}}\subsubsection*{Note}For the first test case, $a$ can be produced by starting with either $9$ and $2$, and then writing down $|9-2|=7$, or starting with $9$ and $7$ and writing down $|9-7|=2$. This list cannot be obtained by starting with $2$ and $7$. So in any case, $9$ must have been one of the starting numbers. Note that $2$ and $7$ are also acceptable answers.\\ For the second test case, we can show that the two initial numbers must have been $-4$ and $11$.\\ For the fourth test case, the starting numbers could have been either $3$ and $3$, or $3$ and $0$. In any case, one of them was $3$.\\ For the fifth test case, we can show that the starting numbers were $8$ and $16$.
+\newpage
+\section*{B. Minimize Permutation Subarrays}
+\subsection*{Constriants}
+\textbf{Time Limit}
+2 seconds
+\hfill
+\textbf{Memory Limit}
+256 MB
+\subsubsection*{Problem Statement}
+\paragraph{}You are given a permutation $p$ of size $n$. You want to minimize the number of subarrays of $p$ that are permutations. In order to do so, you must perform the following operation exactly once:  Select integers $i$, $j$, where $1 \le i, j \le n$, then  Swap $p_i$ and $p_j$. 
+
+For example, if $p = [5, 1, 4, 2, 3]$ and we choose $i = 2$, $j = 3$, the resulting array will be $[5, 4, 1, 2, 3]$. If instead we choose $i = j = 5$, the resulting array will be $[5, 1, 4, 2, 3]$.
+
+Which choice of $i$ and $j$ will minimize the number of subarrays that are permutations?
+
+A permutation of length $n$ is an array consisting of $n$ distinct integers from $1$ to $n$ in arbitrary order. For example, $[2,3,1,5,4]$ is a permutation, but $[1,2,2]$ is not a permutation ($2$ appears twice in the array), and $[1,3,4]$ is also not a permutation ($n=3$ but there is $4$ in the array).
+
+An array $a$ is a subarray of an array $b$ if $a$ can be obtained from $b$ by the deletion of several (possibly, zero or all) elements from the beginning and several (possibly, zero or all) elements from the end.
+\paragraph{}
+\subsubsection*{Input Description}The first line of the input contains a single integer $t$ ($1 \le t \le 10^4$) — the number of test cases. The description of the test cases follows.
+
+The first line of each test case contains a single integer $n$ ($3 \le n \le 2\cdot 10^5$) — the size of the permutation.
+
+The next line of each test case contains $n$ integers $p_1, p_2, \ldots p_n$ ($1 \le p_i \le n$, all $p_i$ are distinct) — the elements of the permutation $p$.
+
+It is guaranteed that the sum of $n$ over all test cases does not exceed $2\cdot 10^5$.
+\paragraph{}
+\subsubsection*{Output Description : }For each test case, output two integers $i$ and $j$ ($1 \le i, j \le n$)  — the indices to swap in $p$.
+
+If there are multiple solutions, print any of them.
+\subsection*{Examples}
+\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Input}
+
+8\\ 3\\ 1 2 3\\ 3\\ 1 3 2\\ 5\\ 1 3 2 5 4\\ 6\\ 4 5 6 1 2 3\\ 9\\ 8 7 6 3 2 1 4 5 9\\ 10\\ 7 10 5 1 9 8 3 2 6 4\\ 10\\ 8 5 10 9 2 1 3 4 6 7\\ 10\\ 2 3 5 7 10 1 8 6 4 9
+
+\textbf{Output}
+
+2 3\\ 1 1\\ 5 2\\ 1 4\\ 9 5\\ 8 8\\ 6 10\\ 5 4}}\subsubsection*{Note}For the first test case, there are four possible arrays after the swap:   If we swap $p_1$ and $p_2$, we get the array $[2, 1, 3]$, which has 3 subarrays that are permutations ($[1]$, $[2, 1]$, $[2, 1, 3]$).  If we swap $p_1$ and $p_3$, we get the array $[3, 2, 1]$, which has 3 subarrays that are permutations ($[1]$, $[2, 1]$, $[3, 2, 1]$).  If we swap $p_2$ and $p_3$, we get the array $[1, 3, 2]$, which has 2 subarrays that are permutations ($[1]$, $[1, 3, 2]$).  If we swap any element with itself, we get the array $[1, 2, 3]$, which has 3 subarrays that are permutations ($[1]$, $[1, 2]$, $[1, 2, 3]$).  So the best swap to make is positions $2$ and $3$.\\ For the third sample case, after we swap elements at positions $2$ and $5$, the resulting array is $[1, 4, 2, 5, 3]$. The only subarrays that are permutations are $[1]$ and $[1, 4, 2, 5, 3]$. We can show that this is minimal.
+\newpage
+\section*{C. No Prime Differences}
+\subsection*{Constriants}
+\textbf{Time Limit}
+2 seconds
+\hfill
+\textbf{Memory Limit}
+256 MB
+\subsubsection*{Problem Statement}
+\paragraph{}You are given integers $n$ and $m$. Fill an $n$ by $m$ grid with the integers $1$ through $n\cdot m$, in such a way that for any two adjacent cells in the grid, the absolute difference of the values in those cells is not a prime number. Two cells in the grid are considered adjacent if they share a side.  
+
+It can be shown that under the given constraints, there is always a solution.
+\paragraph{}
+\subsubsection*{Input Description}The first line of the input contains a single integer $t$ ($1 \le t \le 1000$) — the number of test cases. The description of the test cases follows.
+
+The first and only line of each test case contains two integers $n$ and $m$ ($4 \le n, m \le 1000$) — the dimensions of the grid.
+
+It is guaranteed that the sum of $n\cdot m$ over all test cases does not exceed $10^6$.
+\paragraph{}
+\subsubsection*{Output Description : }For each test case, output $n$ lines of $m$ integers each, representing the final grid. Every number from $1$ to $n\cdot m$ should appear exactly once in the grid.
+
+The extra spaces and blank lines in the sample output below are only present to make the output easier to read, and are not required.
+
+If there are multiple solutions, print any of them.
+\subsection*{Examples}
+\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Input}
+
+3\\ 4 4\\ 5 7\\ 6 4
+
+\textbf{Output}
+
+16  7  1  9\\ 12  8  2  3\\ 13  4 10 11\\ 14  5  6 15\\ \\ 29 23 17  9  5  6  2\\ 33 27 21 15 11  7  1\\ 32 31 25 19 20 16 10\\ 26 30 24 18 14  8  4\\ 35 34 28 22 13 12  3\\ \\  2  3  7 11\\  8  9  1 10\\ 17 13  5  4\\ 18 14  6 12\\ 19 23 15 21\\ 20 24 16 22}}\subsubsection*{Note}The first sample case corresponds to the picture above. The only absolute differences between adjacent elements in this grid are $1$, $4$, $6$, $8$, and $9$, none of which are prime.
+\newpage
+\section*{D. Bracket Walk}
+\subsection*{Constriants}
+\textbf{Time Limit}
+3 seconds
+\hfill
+\textbf{Memory Limit}
+256 MB
+\subsubsection*{Problem Statement}
+\paragraph{}There is a string $s$ of length $n$ consisting of the characters '(' and ')'. You are walking on this string. You start by standing on top of the first character of $s$, and you want to make a sequence of moves such that you end on the $n$-th character. In one step, you can move one space to the left (if you are not standing on the first character), or one space to the right (if you are not standing on the last character). You may not stay in the same place, however you may visit any character, including the first and last character, any number of times.
+
+At each point in time, you write down the character you are currently standing on. We say the string is walkable if there exists some sequence of moves that take you from the first character to the last character, such that the string you write down is a regular bracket sequence.
+
+A regular bracket sequence is a bracket sequence that can be transformed into a correct arithmetic expression by inserting characters '1' and '+' between the original characters of the sequence. For example, bracket sequences "()()", "(())" are regular (the resulting expressions are: "(1)+(1)", "((1+1)+1)"), and ")(" and "(" are not.One possible valid walk on $s=\mathtt{(())()))}$. The red dot indicates your current position, and the red string indicates the string you have written down. Note that the red string is a regular bracket sequence at the end of the process.
+
+You are given $q$ queries. Each query flips the value of a character from '(' to ')' or vice versa. After each query, determine whether the string is walkable.
+
+Queries are cumulative, so the effects of each query carry on to future queries.
+\paragraph{}
+\subsubsection*{Input Description}The first line of the input contains two integers $n$ and $q$ ($1 \le n, q \le 2\cdot 10^5$) — the size of the string and the number of queries, respectively.
+
+The second line of the input contains a string $s$ of size $n$, consisting of the characters '(' and ')' — the initial bracket string.
+
+Each of the next $q$ lines contains a single integer $i$ ($1\le i \le n$) — the index of the character to flip for that query.
+\paragraph{}
+\subsubsection*{Output Description : }For each query, print "YES" if the string is walkable after that query, and "NO" otherwise.
+
+You can output the answer in any case (upper or lower). For example, the strings "yEs", "yes", "Yes", and "YES" will be recognized as positive responses.
+\subsection*{Examples}
+\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Input}
+
+10 9\\ (())()()))\\ 9\\ 7\\ 2\\ 6\\ 3\\ 6\\ 7\\ 4\\ 8
+
+\textbf{Output}
+
+YES\\ YES\\ NO\\ NO\\ YES\\ NO\\ YES\\ NO\\ NO}}
+\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Input}
+
+3 2\\ (()\\ 2\\ 3
+
+\textbf{Output}
+
+NO\\ NO}}\subsubsection*{Note}In the first example:   After the first query, the string is (())()()(). This string is a regular bracket sequence, so it is walkable by simply moving to the right.  After the second query, the string is (())()))(). If you move right once, then left once, then walk right until you hit the end of the string, you produce the string (((())()))(), which is a regular bracket sequence.  After the third query, the string is ()))()))(). We can show that this string is not walkable.  In the second example, the strings after the queries are ()) and ()(, neither of which are walkable.
+\newpage
+\section*{E. Count Supersequences}
+\subsection*{Constriants}
+\textbf{Time Limit}
+3 seconds
+\hfill
+\textbf{Memory Limit}
+256 MB
+\subsubsection*{Problem Statement}
+\paragraph{}You are given an array $a$ of $n$ integers, where all elements $a_i$ lie in the range $[1, k]$. How many different arrays $b$ of $m$ integers, where all elements $b_i$ lie in the range $[1, k]$, contain $a$ as a subsequence? Two arrays are considered different if they differ in at least one position.
+
+A sequence $x$ is a subsequence of a sequence $y$ if $x$ can be obtained from $y$ by the deletion of several (possibly, zero or all) elements.
+
+Since the answer may be large, print it modulo $10^9 + 7$.
+\paragraph{}
+\subsubsection*{Input Description}The first line of the input contains a single integer $t$ ($1 \le t \le 10^4$) — the number of test cases. The description of the test cases follows.
+
+The first line of each test case contains three integers $n$, $m$, $k$ ($1 \le n \le 2\cdot 10^5$, $n \le m \le 10^9$, $1 \le k \le 10^9$) — the size of $a$, the size of $b$, and the maximum value allowed in the arrays, respectively.
+
+The next line of each test case contains $n$ integers $a_1, a_2, \ldots a_n$ ($1\le a_i \le k$) — the elements of the array $a$.
+
+It is guaranteed that the sum of $n$ over all test cases does not exceed $2\cdot 10^5$.
+\paragraph{}
+\subsubsection*{Output Description : }For each test case, output a single integer — the number of suitable arrays $b$, modulo $10^9+7$.
+\subsection*{Examples}
+\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Input}
+
+7\\ 1 1000000 1\\ 1\\ 3 4 3\\ 1 2 2\\ 5 7 8\\ 1 2 3 4 1\\ 6 6 18\\ 18 2 2 5 2 16\\ 1 10 2\\ 1\\ 8 10 1234567\\ 1 1 2 1 2 2 2 1\\ 5 1000000000 1000000000\\ 525785549 816356460 108064697 194447117 725595511
+
+\textbf{Output}
+
+1\\ 9\\ 1079\\ 1\\ 1023\\ 906241579\\ 232432822}}\subsubsection*{Note}For the first example, since $k=1$, there is only one array of size $m$ consisting of the integers $[1, k]$. This array ($[1, 1, \ldots, 1]$) contains the original array as a subsequence, so the answer is 1.\\ For the second example, the $9$ arrays are $[1, 1, 2, 2]$, $[1, 2, 1, 2]$, $[1, 2, 2, 1]$, $[1, 2, 2, 2]$, $[1, 2, 2, 3]$, $[1, 2, 3, 2]$, $[1, 3, 2, 2]$, $[2, 1, 2, 2]$, $[3, 1, 2, 2]$.\\ For the fourth example, since $m=n$, the only array of size $m$ that contains $a$ as a subsequence is $a$ itself.
+\newpage
+\section*{F. Stuck Conveyor}
+\subsection*{Constriants}
+\textbf{Time Limit}
+2 seconds
+\hfill
+\textbf{Memory Limit}
+256 MB
+\subsubsection*{Problem Statement}
+\paragraph{}This is an interactive problem.
+
+There is an $n$ by $n$ grid of conveyor belts, in positions $(1, 1)$ through $(n, n)$ of a coordinate plane. Every other square in the plane is empty. Each conveyor belt can be configured to move boxes up ('^'), down ('v'), left ('<;'), or right ('>;'). If a box moves onto an empty square, it stops moving.
+
+However, one of the $n^2$ belts is stuck, and will always move boxes in the same direction, no matter how it is configured. Your goal is to perform a series of tests to determine which conveyor belt is stuck, and the direction in which it sends items.
+
+To achieve this, you can perform up to $25$ tests. In each test, you assign a direction to all $n^2$ belts, place a box on top of one of them, and then turn all of the conveyors on. One possible result of a query with $n=4$. In this case, the box starts at $(2, 2)$. If there were no stuck conveyor, it would end up at $(5, 4)$, but because of the stuck '>;' conveyor at $(3, 3)$, it enters an infinite loop.
+
+The conveyors move the box around too quickly for you to see, so the only information you receive from a test is whether the box eventually stopped moving, and if so, the coordinates of its final position.
+\paragraph{}
+\subsubsection*{Input Description}You begin the interaction by reading a single integer $n$ ($2 \le n\le 100$) — the number of rows and columns in the grid.
+
+Then, you can make at most $25$ queries.
+
+Each query should begin with a line of the form ? r c, where r and c are the initial row and column of the box, respectively.
+
+The next $n$ lines of the query should contain $n$ characters each. The $j$th character of the $i$th row should be one of '^', 'v', '<;', or '>;', indicating the direction of conveyor $(i, j)$ for this query.
+
+After each query, you will receive two integers $x$ and $y$. If $x = y = -1$, then the box entered an infinite loop. Otherwise, its final position was $(x, y)$.
+
+If you make too many queries or make an invalid query, you will receive the Wrong Answer verdict.
+
+After you have found the stuck conveyor and its direction, print a single line ! r c dir, where r and c are the row and column of the stuck conveyor, respectively, and dir is one of '^', 'v', '<;', or '>;', indicating the direction of the stuck conveyor. Note that printing this answer does not count towards your total of $25$ queries. After printing this line, your program should terminate.
+
+The interactor is non-adaptive. This means that the location and direction of the stuck belt is fixed at the start of the interaction, and does not change after the queries.
+
+After printing a query do not forget to output the end of line and flush the output. Otherwise, you will get Idleness limit exceeded. To do this, use:  fflush(stdout) or cout.flush() in C++;  System.out.flush() in Java;  flush(output) in Pascal;  stdout.flush() in Python;  see the documentation for other languages. 
+
+Hacks
+
+To make a hack, use the following format.
+
+The first line should contain a single integer $n$ ($1 \le n \le 100$) — the number of rows and columns in the grid.
+
+The next line should contain two integers $r$ and $c$ ($1 \le r, c \le n$), as well as a character $\mathrm{dir}$ ($\mathrm{dir}$ is one of '^', 'v', '<;', '>;') — the position of the stuck conveyor and its fixed direction. These values should be separated by spaces.
+\paragraph{}
+\subsubsection*{Output Description : }3
+
+
+
+
+
+
+
+
+
+-1 -1
+
+
+
+
+
+
+
+
+
+0 2Output
+
+
+
+? 2 2
+
+>;>;<;
+
+>;>;v
+
+^<;<;
+
+
+
+? 1 1
+
+>;>;<;
+
+>;>;v
+
+^<;<;
+
+
+
+! 1 2 ^Input
+
+4
+
+
+
+
+
+
+
+
+
+
+
+-1 -1Output
+
+
+
+? 2 2
+
+v>;v<;
+
+^v<;v
+
+v>;v^
+
+>;v>;v
+
+
+
+! 3 3 >;
+\subsection*{Examples}
+\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Input}
+
+3\\ \\ \\ \\ \\ -1 -1\\ \\ \\ \\ \\ 0 2
+
+\textbf{Output}
+
+? 2 2\\ >><\\ >>v\\ ^<<\\ \\ ? 1 1\\ >><\\ >>v\\ ^<<\\ \\ ! 1 2 ^}}
+\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Input}
+
+4\\ \\ \\ \\ \\ \\ -1 -1
+
+\textbf{Output}
+
+? 2 2\\ v>v<\\ ^v<v\\ v>v^\\ >v>v\\ \\ ! 3 3 >}}
+\newpage
+\end{document}
